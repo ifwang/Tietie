@@ -7,7 +7,7 @@
 //
 
 #import "IFAppDelegate.h"
-
+#import "IFScannerViewController.h"
 @implementation IFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,6 +16,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    IFScannerViewController *vc = [[IFScannerViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+    
+    
     return YES;
 }
 

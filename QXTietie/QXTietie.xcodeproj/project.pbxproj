@@ -19,6 +19,8 @@
 		2CEFE71518B250B900FFAFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEFE6FD18B250B900FFAFA2 /* UIKit.framework */; };
 		2CEFE71D18B250B900FFAFA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CEFE71B18B250B900FFAFA2 /* InfoPlist.strings */; };
 		2CEFE71F18B250B900FFAFA2 /* QXTietieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFE71E18B250B900FFAFA2 /* QXTietieTests.m */; };
+		2CEFE73018B2547A00FFAFA2 /* IFScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFE72E18B2547A00FFAFA2 /* IFScannerViewController.m */; };
+		2CEFE73118B2547A00FFAFA2 /* IFScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CEFE72F18B2547A00FFAFA2 /* IFScannerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		2CEFE71A18B250B900FFAFA2 /* QXTietieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QXTietieTests-Info.plist"; sourceTree = "<group>"; };
 		2CEFE71C18B250B900FFAFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CEFE71E18B250B900FFAFA2 /* QXTietieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QXTietieTests.m; sourceTree = "<group>"; };
+		2CEFE72D18B2547A00FFAFA2 /* IFScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFScannerViewController.h; sourceTree = "<group>"; };
+		2CEFE72E18B2547A00FFAFA2 /* IFScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFScannerViewController.m; sourceTree = "<group>"; };
+		2CEFE72F18B2547A00FFAFA2 /* IFScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFScannerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,8 @@
 		2CEFE6FF18B250B900FFAFA2 /* QXTietie */ = {
 			isa = PBXGroup;
 			children = (
+				2CEFE72C18B2544B00FFAFA2 /* Common */,
+				2CEFE72818B253D900FFAFA2 /* Scanner */,
 				2CEFE70818B250B900FFAFA2 /* IFAppDelegate.h */,
 				2CEFE70918B250B900FFAFA2 /* IFAppDelegate.m */,
 				2CEFE70B18B250B900FFAFA2 /* Images.xcassets */,
@@ -142,6 +149,79 @@
 				2CEFE71B18B250B900FFAFA2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CEFE72818B253D900FFAFA2 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				2CEFE72B18B2544300FFAFA2 /* Model */,
+				2CEFE72A18B2543D00FFAFA2 /* View */,
+				2CEFE72918B2543500FFAFA2 /* Controller */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
+		2CEFE72918B2543500FFAFA2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CEFE72D18B2547A00FFAFA2 /* IFScannerViewController.h */,
+				2CEFE72E18B2547A00FFAFA2 /* IFScannerViewController.m */,
+				2CEFE72F18B2547A00FFAFA2 /* IFScannerViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2CEFE72A18B2543D00FFAFA2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2CEFE72B18B2544300FFAFA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2CEFE72C18B2544B00FFAFA2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2CEFE73218B2548200FFAFA2 /* Base */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		2CEFE73218B2548200FFAFA2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2CEFE73518B2549200FFAFA2 /* Model */,
+				2CEFE73418B2548D00FFAFA2 /* View */,
+				2CEFE73318B2548600FFAFA2 /* Controller */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		2CEFE73318B2548600FFAFA2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2CEFE73418B2548D00FFAFA2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2CEFE73518B2549200FFAFA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEFE73118B2547A00FFAFA2 /* IFScannerViewController.xib in Resources */,
 				2CEFE70418B250B900FFAFA2 /* InfoPlist.strings in Resources */,
 				2CEFE70C18B250B900FFAFA2 /* Images.xcassets in Resources */,
 			);
@@ -241,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CEFE70618B250B900FFAFA2 /* main.m in Sources */,
+				2CEFE73018B2547A00FFAFA2 /* IFScannerViewController.m in Sources */,
 				2CEFE70A18B250B900FFAFA2 /* IFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
