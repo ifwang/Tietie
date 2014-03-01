@@ -17,17 +17,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-ll-oI5" customClass="EZAudioPlot">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="100" width="320" height="268"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="3aB-ll-oI5" firstAttribute="top" secondItem="1" secondAttribute="top" id="XWj-Kz-R3D"/>
-                <constraint firstItem="3aB-ll-oI5" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="kDb-79-t4H"/>
-                <constraint firstAttribute="bottom" secondItem="3aB-ll-oI5" secondAttribute="bottom" id="mGN-JO-tgB"/>
-                <constraint firstAttribute="trailing" secondItem="3aB-ll-oI5" secondAttribute="trailing" id="pKW-jz-M9b"/>
+                <constraint firstItem="3aB-ll-oI5" firstAttribute="top" secondItem="1" secondAttribute="top" constant="100" id="Az6-aQ-cHp"/>
+                <constraint firstAttribute="trailing" secondItem="3aB-ll-oI5" secondAttribute="trailing" id="Yeg-9b-6we"/>
+                <constraint firstAttribute="bottom" secondItem="3aB-ll-oI5" secondAttribute="bottom" constant="200" id="h1Y-9J-FKH"/>
+                <constraint firstItem="3aB-ll-oI5" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="o4E-sF-OKg"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

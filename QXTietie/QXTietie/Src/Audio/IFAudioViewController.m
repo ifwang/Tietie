@@ -10,19 +10,38 @@
 #import "IFAudioView.h"
 #import "EZRecorder.h"
 #import "EZAudioPlayer.h"
+
+static CGFloat const kMaxRecordTime = 15;
+
 @interface IFAudioViewController ()<EZMicrophoneDelegate,IFAudioViewDelegate,EZAudioPlayerDelegate>
 
 @property (nonatomic, weak) IBOutlet IFAudioView *audioView;
-
+/**
+ *  右上角播放按钮
+ */
+@property (nonatomic, strong) UIBarButtonItem *playBtn;
+/**
+ *  录音器
+ */
 @property (nonatomic, strong) EZRecorder *recorder;
-
+/**
+ *  目前音频URL
+ */
 @property (nonatomic, strong) NSURL *currentUrl;
-
+/**
+ *  播放器
+ */
 @property (nonatomic, strong) EZAudioPlayer *player;
-
+/**
+ *  录音音频格式
+ */
 @property (nonatomic, assign) AudioStreamBasicDescription abDescription;
+/**
+ *  录音定时器，最大录音时间为15秒
+ */
+@property (nonatomic, strong) NSTimer *recordTimer;
 
-
+@property (nonatomic, assign) NSUInteger recordTime;
 /**
  The microphone component
  */
@@ -36,6 +55,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"15秒视频";
     }
     return self;
 }
@@ -80,21 +100,26 @@
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(play)];
     self.navigationItem.rightBarButtonItem = item;
+    self.playBtn = item;
+    _playBtn.enabled = NO;
 }
 
 #pragma mark - View Delegate
+
 - (void)onStartBtnClick
 {
     [_microphone startFetchingAudio];
     
     self.currentUrl = [self createAudioFile];
     self.recorder = [EZRecorder recorderWithDestinationURL:_currentUrl andSourceFormat:_abDescription];
+    _playBtn.enabled = NO;
 }
 
 - (void)onStopBtnClick
 {
     [_microphone stopFetchingAudio];
     [_recorder closeAudioFile];
+    _playBtn.enabled = YES;
 }
 
 - (void)play
@@ -165,7 +190,22 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     });
 }
 
+#pragma mark - Timer Method
+
+- (void)startRecordTimer
+{
+    _recordTime = 0;
+    self.recordTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(recordTimerFire) userInfo:nil repeats:YES];
+                       
+}
+
+- (void)recordTimerFire
+{
+    
+}
+
 #pragma mark - Private Method
+
 
 - (void)deleteAudio:(NSURL*)fileUrl
 {

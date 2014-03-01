@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "EZAudio.h"
+typedef NS_ENUM(NSUInteger, AudioViewStatus)
+{
+    /**
+     *  未开始录音
+     */
+    AudioViewStatusNew,
+    /**
+     *  正在录音
+     */
+    AudioViewStatusRecording,
+    /**
+     *  已经录完
+     */
+    AudioViewStatusRecorded,
+};
 
 @protocol IFAudioViewDelegate <NSObject>
 
@@ -21,6 +36,9 @@
 
 @property (nonatomic, weak) id<IFAudioViewDelegate> delegate;
 
+@property (nonatomic, assign) AudioViewStatus status;
+
+
 /**
  The CoreGraphics based audio plot
  */
@@ -32,6 +50,6 @@
  */
 - (void)initView;
 
-- (void)stopFunctioning;
+- (void)setProgress:(CGFloat)progress;
 
 @end

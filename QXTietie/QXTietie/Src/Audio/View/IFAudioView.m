@@ -7,18 +7,22 @@
 //
 
 #import "IFAudioView.h"
+#import "FlatUIKit.h"
+#import "THProgressView.h"
 
 static NSString *kBeginText = @"开始";
 static NSString *kEndText = @"结束";
 
+#define kViewTintColor HEXCOLOR(0x0088FF)
+
+
+
 
 @interface IFAudioView()
 
+@property (nonatomic, strong) FUIButton *audioBtn;
 
-
-@property (nonatomic, strong) IFLabel *audioBtnLbl;
-
-@property (nonatomic, assign) BOOL isFunctioning;
+@property (nonatomic, strong) THProgressView *progressView;
 
 @end
 
@@ -29,59 +33,121 @@ static NSString *kEndText = @"结束";
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _isFunctioning = NO;
     }
     return self;
 }
 
+
+- (void)setProgress:(CGFloat)progress
+{
+    [self.progressView setProgress:progress];
+}
+
+
+#pragma mark - init view Method
+
 - (void)initView
+{
+    [self initPlot];
+    [self initProgress];
+    [self initButton];
+    
+    [self changeToStatus:AudioViewStatusNew];
+    
+}
+
+- (void)initPlot
 {
     self.audioPlot.backgroundColor = [UIColor whiteColor];
     // Waveform color
-    self.audioPlot.color           = HEXCOLOR(0x58D3F7);
+    self.audioPlot.color           = kViewTintColor;
     // Plot type
     self.audioPlot.plotType        = EZPlotTypeBuffer;
+}
+
+- (void)initButton
+{
+    CGSize screenSize = [IFCommon screenSize];
+    CGFloat height = IOS7_OR_LATER?screenSize.height - 140:screenSize.height - 140 - 64;
+    FUIButton *button = [[FUIButton alloc] initWithFrame:CGRectMake(40, height, 240, 40)];
+
+    button.buttonColor = kViewTintColor;
+    button.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    button.shadowHeight = 3.0f;
+    button.cornerRadius = 6.0f;
+    [button setTitle:@"hehe" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(audioAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.audioBtn = button;
     
-    
-    IFButton *button = [IFButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundColor:[UIColor grayColor]];
-    [button setFrame:CGRectMake(0, [IFCommon screenSize].height - (IOS7_OR_LATER?0:64) - 40, [IFCommon screenSize].width, 40)];
     [self addSubview:button];
     
-    self.audioBtnLbl = [[IFLabel alloc] initWithFrame:CGRectMake(0, 10, 320, 20)];
-    _audioBtnLbl.textAlignment = NSTextAlignmentCenter;
-    _audioBtnLbl.font = [UIFont systemFontOfSize:20];
-    _audioBtnLbl.textColor = HEXCOLOR(0x58D3F7);
-    _audioBtnLbl.highlightedTextColor = HEXCOLOR(0x084B8A);
-    _audioBtnLbl.text = kBeginText;
-    [button addSubview:_audioBtnLbl];
-    [button addTarget:self action:@selector(audioAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)audioAction
+- (void)initProgress
 {
-    if(_isFunctioning)
-    {
-        [self stopFunctioning];
+    CGSize screenSize = [IFCommon screenSize];
+    CGFloat height = IOS7_OR_LATER?screenSize.height - 200:screenSize.height - 200 - 64;
+    
+    self.progressView = [[THProgressView alloc] initWithFrame:CGRectMake(40, height, 240, 20)];
+    _progressView.progressTintColor = kViewTintColor;
+    _progressView.borderTintColor = kViewTintColor;
+    [self addSubview:_progressView];
+}
+
+
+#pragma mark - button Method Delegate
+
+- (void)changeToStatus:(AudioViewStatus)status
+{
+    _status = status;
+    switch (status) {
+        case AudioViewStatusNew:
+        {
+            [_audioBtn setTitle:@"开始录音" forState:UIControlStateNormal];
+            [_audioBtn setButtonColor:kViewTintColor];
+            [_progressView setProgress:0 animated:YES];
+            break;
+        }
+        case AudioViewStatusRecording:
+        {
+            [_audioBtn setTitle:@"停止录音" forState:UIControlStateNormal];
+            [_audioBtn setButtonColor:kViewTintColor];
+            break;
+        }
+        case AudioViewStatusRecorded:
+        {
+            [_audioBtn setTitle:@"重新录音" forState:UIControlStateNormal];
+            [_audioBtn setButtonColor:HEXCOLOR(0xCD5C5C)];
+            [_progressView setProgress:1 animated:YES];
+        }
     }
-    else
+}
+
+- (void)audioAction:(id)sender
+{
+    switch (_status)
     {
-        [self startFunctioning];
+        case AudioViewStatusNew:
+        {
+            [self changeToStatus:AudioViewStatusRecording];
+            [_delegate onStartBtnClick];
+            break;
+        }
+        case AudioViewStatusRecording:
+        {
+            [self changeToStatus:AudioViewStatusRecorded];
+            [_delegate onStopBtnClick];
+            break;
+        }
+        case AudioViewStatusRecorded:
+        {
+            [self changeToStatus:AudioViewStatusNew];
+            break;
+        }
     }
-}
-
-- (void)stopFunctioning
-{
-    [_delegate onStopBtnClick];
-    _audioBtnLbl.text = kBeginText;
-    _isFunctioning = NO;
-}
-
-- (void)startFunctioning
-{
-    [_delegate onStartBtnClick];
-    _audioBtnLbl.text = kEndText;
-    _isFunctioning = YES;
 }
 
 /*
