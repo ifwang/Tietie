@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/paipai/paipai_qgo_rep/!svn/ver/55766/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo
+END
+UIDevice+Hardware.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/paipai/paipai_qgo_rep/!svn/ver/51275/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo/UIDevice+Hardware.h
+END
+WGUUID.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/paipai/paipai_qgo_rep/!svn/ver/51275/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo/WGUUID.h
+END
+WGSystemInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/paipai/paipai_qgo_rep/!svn/ver/51275/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo/WGSystemInfo.h
+END
+UIDevice+Hardware.m
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/paipai/paipai_qgo_rep/!svn/ver/51275/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo/UIDevice+Hardware.m
+END
+WGUUID.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/paipai/paipai_qgo_rep/!svn/ver/55766/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo/WGUUID.m
+END
+WGSystemInfo.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/paipai/paipai_qgo_rep/!svn/ver/52421/qgo_proj/trunk/app/appi_weigou/weigou/Src/Common/Util/SystemInfo/WGSystemInfo.m
+END

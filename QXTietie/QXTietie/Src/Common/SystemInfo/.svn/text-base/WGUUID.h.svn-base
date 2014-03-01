@@ -1,0 +1,13 @@
+//
+//  WGUUID.h
+//  weigou
+//
+//  Created by candela on 13-10-26.
+//  Copyright (c) 2013年 tencent. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface WGUUID : NSObject
++ (NSString *)UUID;
+@end

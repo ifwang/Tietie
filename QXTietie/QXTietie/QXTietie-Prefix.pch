@@ -13,4 +13,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#import "IFCommon.h"
+#import "IFConstant.h"
+#import "IFButton.h"
+#import "IFLabel.h"
+#import "WGSystemInfo.h"
 #endif

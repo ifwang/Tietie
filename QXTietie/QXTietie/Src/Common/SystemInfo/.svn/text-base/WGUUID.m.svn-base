@@ -1,0 +1,79 @@
+//
+//  WGUUID.m
+//  weigou
+//
+//  Created by candela on 13-10-26.
+//  Copyright (c) 2013年 tencent. All rights reserved.
+//
+
+#import "WGUUID.h"
+
+#import "WGKeychain.h"
+
+//#ifdef DAILYBUILD
+//#define kUUID @"UUID.DAILYBUILD"
+//#elif defined DEBUG
+//#define kUUID @"UUID.DEBUG"
+//#else
+#define kUUID @"weigou.UUID"
+//#endif
+
+
+//#define kUUIDAccessGroup @"UKADS4VAJK.com.tencent.weigou"
+
+@interface WGUUID ()
+@property (nonatomic, strong) WGKeychain *UUIDKeychainItem;
+@property (nonatomic, strong) NSString *UUIDString;
+@end
+
+@implementation WGUUID
++ (NSString *)UUID
+{
+    static WGUUID *UUIDInstance = nil;
+//    dispatch_once_t uuidOneToken;
+//    
+//    dispatch_once(&uuidOneToken, ^{
+//        UUIDInstance = [[WGUUID alloc] init];
+//    });
+    
+    if (UUIDInstance == nil)
+    {
+        UUIDInstance = [[WGUUID alloc] init];
+    }
+    
+    if (UUIDInstance.UUIDString == nil)
+    {
+        NSString *uuidString = [UUIDInstance.UUIDKeychainItem objectForKey:(__bridge_transfer id)kSecValueData];
+        
+        if (uuidString == nil || uuidString.length == 0)
+        {
+            uuidString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+            @try {
+                [UUIDInstance.UUIDKeychainItem setObject:uuidString forKey:(__bridge_transfer id)kSecValueData];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"UUID:set keychain failed");
+            }
+            @finally {
+                
+            }
+        }
+        
+        UUIDInstance.UUIDString = uuidString;
+    }
+    
+    
+    return UUIDInstance.UUIDString;
+}
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        _UUIDKeychainItem = [[WGKeychain alloc] initWithIdentifier:kUUID accessGroup:nil];//kUUIDAccessGroup];
+    }
+    
+    return self;
+}
+
+@end

@@ -7,7 +7,7 @@
 //
 
 #import "IFAppDelegate.h"
-#import "IFScannerViewController.h"
+#import "IFHomeViewController.h"
 @implementation IFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -18,7 +18,7 @@
     [self.window makeKeyAndVisible];
     
     
-    IFScannerViewController *vc = [[IFScannerViewController alloc] init];
+    IFHomeViewController *vc = [[IFHomeViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     

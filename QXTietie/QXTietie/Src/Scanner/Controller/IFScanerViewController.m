@@ -1,18 +1,18 @@
 //
-//  IFScannerViewController.m
+//  IFScanerViewController.m
 //  QXTietie
 //
-//  Created by ifwang on 14-2-17.
+//  Created by ifwang on 14-2-19.
 //  Copyright (c) 2014年 ifwang. All rights reserved.
 //
 
-#import "IFScannerViewController.h"
+#import "IFScanerViewController.h"
 
-@interface IFScannerViewController ()
+@interface IFScanerViewController ()<UIImagePickerControllerDelegate>
 
 @end
 
-@implementation IFScannerViewController
+@implementation IFScanerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

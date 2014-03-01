@@ -1,0 +1,42 @@
+//
+//  WGSystemInfo.h
+//  wego
+//
+//  Created by ifwang on 13-10-18.
+//
+
+#import <Foundation/Foundation.h>
+
+#define IOS7_OR_LATER	( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
+#define IOS6_OR_LATER	( [[[UIDevice currentDevice] systemVersion] compare:@"6.0"] != NSOrderedAscending )
+#define IOS5_OR_LATER	( [[[UIDevice currentDevice] systemVersion] compare:@"5.0"] != NSOrderedAscending )
+#define IOS4_OR_LATER	( [[[UIDevice currentDevice] systemVersion] compare:@"4.0"] != NSOrderedAscending )
+#define IOS3_OR_LATER	( [[[UIDevice currentDevice] systemVersion] compare:@"3.0"] != NSOrderedAscending )
+
+@interface WGSystemInfo : NSObject
++ (NSString *)osVersion;
++ (NSString *)appVersion;
++ (NSString *)buildVersion;
++ (NSString *)deviceModel;
+
+
++ (BOOL)isJailBroken;
++ (NSString *)jailBreaker;
+
+
++ (NSString *) platform;
++ (NSString *) hwmodel;
++ (NSUInteger) platformType;
++ (NSString *) platformString;
+
+
++ (BOOL)isDevicePhone;
++ (BOOL)isDevicePad;
+
++ (BOOL)isPhone35;
++ (BOOL)isPhoneRetina35;
++ (BOOL)isPhoneRetina4;
++ (BOOL)isPad;
++ (BOOL)isPadRetina;
++ (BOOL)isScreenSize:(CGSize)size;
+@end
