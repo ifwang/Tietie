@@ -11,24 +11,27 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1">
+        <view contentMode="scaleToFill" id="1" customClass="IFCardView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7c-Cz-h2e">
-                    <rect key="frame" x="137" y="129" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="音频">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onAudioClick:" destination="-1" eventType="touchUpInside" id="yS6-5V-Xs2"/>
-                    </connections>
-                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-z0-fRG">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uBY-z0-fRG" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="keL-Hl-0U2"/>
+                <constraint firstItem="uBY-z0-fRG" firstAttribute="top" secondItem="1" secondAttribute="top" id="qVn-3X-pN4"/>
+                <constraint firstAttribute="trailing" secondItem="uBY-z0-fRG" secondAttribute="trailing" id="sEy-oi-31s"/>
+                <constraint firstAttribute="bottom" secondItem="uBY-z0-fRG" secondAttribute="bottom" id="w14-Xx-bTd"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="scrollView" destination="uBY-z0-fRG" id="omC-Rc-Swd"/>
+            </connections>
         </view>
     </objects>
 </document>

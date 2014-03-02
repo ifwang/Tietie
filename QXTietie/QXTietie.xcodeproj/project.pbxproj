@@ -13,6 +13,22 @@
 		2C866B4518C30DB50061BC6C /* IFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4418C30DB50061BC6C /* IFBaseNavigationController.m */; };
 		2C866B4818C310540061BC6C /* IFNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4718C310540061BC6C /* IFNavigationBar.m */; };
 		2C866B4A18C314590061BC6C /* NavigationBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B4918C314590061BC6C /* NavigationBackIcon.png */; };
+		2C866B4D18C32BD30061BC6C /* IFTitleHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4C18C32BD30061BC6C /* IFTitleHeader.m */; };
+		2C866B5318C3332F0061BC6C /* IFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B5218C3332F0061BC6C /* IFTextView.m */; };
+		2C866B5618C33DEF0061BC6C /* IFAudioCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B5518C33DEF0061BC6C /* IFAudioCardView.m */; };
+		2C866B5918C33F830061BC6C /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B5818C33F830061BC6C /* mic.png */; };
+		2C866B5D18C3774D0061BC6C /* IFImagePickerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B5C18C3774D0061BC6C /* IFImagePickerUtil.m */; };
+		2C866B6518C37AA20061BC6C /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B6418C37AA20061BC6C /* Plus.png */; };
+		2C866B6818C37AD60061BC6C /* IFImageCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B6718C37AD60061BC6C /* IFImageCardView.m */; };
+		2C866B6B18C37CA30061BC6C /* IFCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B6A18C37CA30061BC6C /* IFCardButton.m */; };
+		2C866B6E18C387AD0061BC6C /* LBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B6D18C387AD0061BC6C /* LBorderView.m */; };
+		2C866B7218C38C500061BC6C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7118C38C500061BC6C /* MBProgressHUD.m */; };
+		2C866B7518C3922F0061BC6C /* UIImage+Compress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7418C3922E0061BC6C /* UIImage+Compress.m */; };
+		2C866B7918C397380061BC6C /* IFImageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7718C397380061BC6C /* IFImageListViewController.m */; };
+		2C866B7A18C397380061BC6C /* IFImageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B7818C397380061BC6C /* IFImageListViewController.xib */; };
+		2C866B7D18C39CB10061BC6C /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7C18C39CB10061BC6C /* SwipeView.m */; };
+		2C866B8018C3A4BE0061BC6C /* IFMapCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7F18C3A4BE0061BC6C /* IFMapCardView.m */; };
+		2C866B8218C3A6F20061BC6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866B8118C3A6F20061BC6C /* MapKit.framework */; };
 		2CAADC8418B4FD41002AA74C /* IFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */; };
 		2CAADC8E18B4FD8D002AA74C /* IFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAADC8C18B4FD8D002AA74C /* IFHomeViewController.m */; };
 		2CAADC8F18B4FD8D002AA74C /* IFHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CAADC8D18B4FD8D002AA74C /* IFHomeViewController.xib */; };
@@ -118,6 +134,34 @@
 		2C866B4618C310540061BC6C /* IFNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNavigationBar.h; sourceTree = "<group>"; };
 		2C866B4718C310540061BC6C /* IFNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNavigationBar.m; sourceTree = "<group>"; };
 		2C866B4918C314590061BC6C /* NavigationBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBackIcon.png; sourceTree = "<group>"; };
+		2C866B4B18C32BD30061BC6C /* IFTitleHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTitleHeader.h; sourceTree = "<group>"; };
+		2C866B4C18C32BD30061BC6C /* IFTitleHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTitleHeader.m; sourceTree = "<group>"; };
+		2C866B5118C3332F0061BC6C /* IFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTextView.h; sourceTree = "<group>"; };
+		2C866B5218C3332F0061BC6C /* IFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTextView.m; sourceTree = "<group>"; };
+		2C866B5418C33DEF0061BC6C /* IFAudioCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAudioCardView.h; sourceTree = "<group>"; };
+		2C866B5518C33DEF0061BC6C /* IFAudioCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAudioCardView.m; sourceTree = "<group>"; };
+		2C866B5818C33F830061BC6C /* mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic.png; sourceTree = "<group>"; };
+		2C866B5B18C3774D0061BC6C /* IFImagePickerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFImagePickerUtil.h; sourceTree = "<group>"; };
+		2C866B5C18C3774D0061BC6C /* IFImagePickerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFImagePickerUtil.m; sourceTree = "<group>"; };
+		2C866B6418C37AA20061BC6C /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
+		2C866B6618C37AD60061BC6C /* IFImageCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFImageCardView.h; sourceTree = "<group>"; };
+		2C866B6718C37AD60061BC6C /* IFImageCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFImageCardView.m; sourceTree = "<group>"; };
+		2C866B6918C37CA30061BC6C /* IFCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardButton.h; sourceTree = "<group>"; };
+		2C866B6A18C37CA30061BC6C /* IFCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCardButton.m; sourceTree = "<group>"; };
+		2C866B6C18C387AD0061BC6C /* LBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBorderView.h; sourceTree = "<group>"; };
+		2C866B6D18C387AD0061BC6C /* LBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBorderView.m; sourceTree = "<group>"; };
+		2C866B7018C38C500061BC6C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2C866B7118C38C500061BC6C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		2C866B7318C3922E0061BC6C /* UIImage+Compress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compress.h"; sourceTree = "<group>"; };
+		2C866B7418C3922E0061BC6C /* UIImage+Compress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Compress.m"; sourceTree = "<group>"; };
+		2C866B7618C397380061BC6C /* IFImageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFImageListViewController.h; sourceTree = "<group>"; };
+		2C866B7718C397380061BC6C /* IFImageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFImageListViewController.m; sourceTree = "<group>"; };
+		2C866B7818C397380061BC6C /* IFImageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFImageListViewController.xib; sourceTree = "<group>"; };
+		2C866B7B18C39CB10061BC6C /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		2C866B7C18C39CB10061BC6C /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		2C866B7E18C3A4BE0061BC6C /* IFMapCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFMapCardView.h; sourceTree = "<group>"; };
+		2C866B7F18C3A4BE0061BC6C /* IFMapCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFMapCardView.m; sourceTree = "<group>"; };
+		2C866B8118C3A6F20061BC6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2CAADC8218B4FD41002AA74C /* IFBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFBaseViewController.h; sourceTree = "<group>"; };
 		2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBaseViewController.m; sourceTree = "<group>"; };
 		2CAADC8B18B4FD8D002AA74C /* IFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFHomeViewController.h; sourceTree = "<group>"; };
@@ -264,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C866B8218C3A6F20061BC6C /* MapKit.framework in Frameworks */,
 				2CDEB4C418C236DC00A2EFC0 /* CoreText.framework in Frameworks */,
 				2CB0CBBC18BFAC1D004EB3CE /* GLKit.framework in Frameworks */,
 				2CEFE6FC18B250B900FFAFA2 /* CoreGraphics.framework in Frameworks */,
@@ -293,6 +338,9 @@
 				2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */,
 				2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */,
 				2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */,
+				2C866B7618C397380061BC6C /* IFImageListViewController.h */,
+				2C866B7718C397380061BC6C /* IFImageListViewController.m */,
+				2C866B7818C397380061BC6C /* IFImageListViewController.xib */,
 			);
 			name = Card;
 			path = Src/Card;
@@ -303,19 +351,43 @@
 			children = (
 				2C866B4018C30B810061BC6C /* IFCardView.h */,
 				2C866B4118C30B810061BC6C /* IFCardView.m */,
+				2C866B4B18C32BD30061BC6C /* IFTitleHeader.h */,
+				2C866B4C18C32BD30061BC6C /* IFTitleHeader.m */,
+				2C866B5118C3332F0061BC6C /* IFTextView.h */,
+				2C866B5218C3332F0061BC6C /* IFTextView.m */,
+				2C866B5418C33DEF0061BC6C /* IFAudioCardView.h */,
+				2C866B5518C33DEF0061BC6C /* IFAudioCardView.m */,
+				2C866B6618C37AD60061BC6C /* IFImageCardView.h */,
+				2C866B6718C37AD60061BC6C /* IFImageCardView.m */,
+				2C866B6918C37CA30061BC6C /* IFCardButton.h */,
+				2C866B6A18C37CA30061BC6C /* IFCardButton.m */,
+				2C866B7E18C3A4BE0061BC6C /* IFMapCardView.h */,
+				2C866B7F18C3A4BE0061BC6C /* IFMapCardView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2C866B6F18C38C500061BC6C /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				2C866B7018C38C500061BC6C /* MBProgressHUD.h */,
+				2C866B7118C38C500061BC6C /* MBProgressHUD.m */,
+			);
+			path = MBProgressHud;
 			sourceTree = "<group>";
 		};
 		2CAADC8018B4FD41002AA74C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2C866B6F18C38C500061BC6C /* MBProgressHud */,
 				2CB0CB8718BFA8F4004EB3CE /* SystemInfo */,
 				2CAADC8118B4FD41002AA74C /* Base */,
 				2CAADD2818B50F90002AA74C /* View */,
 				2CAADD2518B50D72002AA74C /* IFCommon.h */,
 				2CAADD2618B50D72002AA74C /* IFCommon.m */,
 				2CB0CBBE18BFAFB9004EB3CE /* IFConstant.h */,
+				2C866B5B18C3774D0061BC6C /* IFImagePickerUtil.h */,
+				2C866B5C18C3774D0061BC6C /* IFImagePickerUtil.m */,
 			);
 			name = Common;
 			path = Src/Common;
@@ -427,6 +499,8 @@
 		2CAADD1618B50283002AA74C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2C866B6418C37AA20061BC6C /* Plus.png */,
+				2C866B5818C33F830061BC6C /* mic.png */,
 				2C866B4918C314590061BC6C /* NavigationBackIcon.png */,
 				2CDEB4C518C2376700A2EFC0 /* FlatResource */,
 				2CAADD1718B50283002AA74C /* ZBarLine@2x.png */,
@@ -459,12 +533,18 @@
 		2CAADD2818B50F90002AA74C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C866B7B18C39CB10061BC6C /* SwipeView.h */,
+				2C866B7C18C39CB10061BC6C /* SwipeView.m */,
+				2C866B6C18C387AD0061BC6C /* LBorderView.h */,
+				2C866B6D18C387AD0061BC6C /* LBorderView.m */,
 				2CAADD2918B50FA2002AA74C /* IFButton.h */,
 				2CAADD2A18B50FA2002AA74C /* IFButton.m */,
 				2CAADD2C18B510C5002AA74C /* IFLabel.h */,
 				2CAADD2D18B510C5002AA74C /* IFLabel.m */,
 				2C866B4618C310540061BC6C /* IFNavigationBar.h */,
 				2C866B4718C310540061BC6C /* IFNavigationBar.m */,
+				2C866B7318C3922E0061BC6C /* UIImage+Compress.h */,
+				2C866B7418C3922E0061BC6C /* UIImage+Compress.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -613,6 +693,7 @@
 		2CEFE6F818B250B900FFAFA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C866B8118C3A6F20061BC6C /* MapKit.framework */,
 				2CDEB4C318C236DC00A2EFC0 /* CoreText.framework */,
 				2CB0CBBB18BFAC1D004EB3CE /* GLKit.framework */,
 				2CD5E64A18B67338008BC32B /* AudioToolbox.framework */,
@@ -753,12 +834,14 @@
 				2CDEB4D718C2376700A2EFC0 /* Lato-Light.ttf in Resources */,
 				2CEFE70418B250B900FFAFA2 /* InfoPlist.strings in Resources */,
 				2CB0CBB918BFAAAE004EB3CE /* CHANGELOG in Resources */,
+				2C866B7A18C397380061BC6C /* IFImageListViewController.xib in Resources */,
 				2CDEB4D918C2376700A2EFC0 /* Lato-Regular.ttf in Resources */,
 				2CDEB4D518C2376700A2EFC0 /* Lato-HairlineItalic.ttf in Resources */,
 				2CEFE70C18B250B900FFAFA2 /* Images.xcassets in Resources */,
 				2CB0CBBA18BFAAAE004EB3CE /* VERSION in Resources */,
 				2CDEB4D118C2376700A2EFC0 /* Lato-BlackItalic.ttf in Resources */,
 				2CDEB4D818C2376700A2EFC0 /* Lato-LightItalic.ttf in Resources */,
+				2C866B6518C37AA20061BC6C /* Plus.png in Resources */,
 				2C866B3F18C30B6F0061BC6C /* IFCardViewController.xib in Resources */,
 				2CAADC8F18B4FD8D002AA74C /* IFHomeViewController.xib in Resources */,
 				2CAADD1518B50137002AA74C /* IFScanerViewController.xib in Resources */,
@@ -771,6 +854,7 @@
 				2CDEB4D618C2376700A2EFC0 /* Lato-Italic.ttf in Resources */,
 				2CDEB4D318C2376700A2EFC0 /* Lato-BoldItalic.ttf in Resources */,
 				2C866B4A18C314590061BC6C /* NavigationBackIcon.png in Resources */,
+				2C866B5918C33F830061BC6C /* mic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,18 +873,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C866B5318C3332F0061BC6C /* IFTextView.m in Sources */,
 				2CB0CBB818BFAAAE004EB3CE /* TPCircularBuffer.c in Sources */,
 				2CDEB4B018C22A3000A2EFC0 /* UIColor+FlatUI.m in Sources */,
 				2CDEB4B918C22A3000A2EFC0 /* UITableViewCell+FlatUI.m in Sources */,
 				2CAADD0C18B4FF80002AA74C /* AFSecurityPolicy.m in Sources */,
+				2C866B6818C37AD60061BC6C /* IFImageCardView.m in Sources */,
 				2CAADD2718B50D72002AA74C /* IFCommon.m in Sources */,
 				2CDEB4B418C22A3000A2EFC0 /* UIPopoverController+FlatUI.m in Sources */,
 				2CB0CBB618BFAAAE004EB3CE /* EZPlot.m in Sources */,
+				2C866B7518C3922F0061BC6C /* UIImage+Compress.m in Sources */,
 				2CB0CBB118BFAAAE004EB3CE /* EZAudioPlot.m in Sources */,
 				2CB0CBAE18BFAAAE004EB3CE /* EZAudio.m in Sources */,
 				2CAADD1418B50137002AA74C /* IFScanerViewController.m in Sources */,
 				2CAADD0D18B4FF80002AA74C /* AFURLConnectionOperation.m in Sources */,
+				2C866B5D18C3774D0061BC6C /* IFImagePickerUtil.m in Sources */,
+				2C866B7918C397380061BC6C /* IFImageListViewController.m in Sources */,
 				2CAADD1018B4FF80002AA74C /* AFURLSessionManager.m in Sources */,
+				2C866B5618C33DEF0061BC6C /* IFAudioCardView.m in Sources */,
 				2CDEB4AF18C22A3000A2EFC0 /* UIBarButtonItem+FlatUI.m in Sources */,
 				2CDEB4AB18C22A3000A2EFC0 /* FUICellBackgroundView.m in Sources */,
 				2CDEB4B218C22A3000A2EFC0 /* UIImage+FlatUI.m in Sources */,
@@ -809,11 +899,14 @@
 				2CAADD0F18B4FF80002AA74C /* AFURLResponseSerialization.m in Sources */,
 				2CB0CBAF18BFAAAE004EB3CE /* EZAudioFile.m in Sources */,
 				2CB0CB8E18BFA8F4004EB3CE /* UIDevice+Hardware.m in Sources */,
+				2C866B4D18C32BD30061BC6C /* IFTitleHeader.m in Sources */,
 				2CDEB4B318C22A3000A2EFC0 /* UINavigationBar+FlatUI.m in Sources */,
 				2CDEB4AA18C22A3000A2EFC0 /* FUIButton.m in Sources */,
 				2CDEB4AC18C22A3000A2EFC0 /* FUIPopoverBackgroundView.m in Sources */,
 				2CB0CBB018BFAAAE004EB3CE /* EZAudioPlayer.m in Sources */,
 				2CB0CBB518BFAAAE004EB3CE /* EZOutput.m in Sources */,
+				2C866B6E18C387AD0061BC6C /* LBorderView.m in Sources */,
+				2C866B6B18C37CA30061BC6C /* IFCardButton.m in Sources */,
 				2CAADD2E18B510C5002AA74C /* IFLabel.m in Sources */,
 				2CB0CBB218BFAAAE004EB3CE /* EZAudioPlotGL.m in Sources */,
 				2CDEB4B618C22A3000A2EFC0 /* UISlider+FlatUI.m in Sources */,
@@ -829,12 +922,14 @@
 				2CB0CBB318BFAAAE004EB3CE /* EZAudioPlotGLKViewController.m in Sources */,
 				2CDEB4B518C22A3000A2EFC0 /* UIProgressView+FlatUI.m in Sources */,
 				2CDEB4B118C22A3000A2EFC0 /* UIFont+FlatUI.m in Sources */,
+				2C866B7218C38C500061BC6C /* MBProgressHUD.m in Sources */,
 				2CAADD2418B50B45002AA74C /* IFAudioView.m in Sources */,
 				2CEFE70618B250B900FFAFA2 /* main.m in Sources */,
 				2CDEB4AE18C22A3000A2EFC0 /* FUISwitch.m in Sources */,
 				2CAADD0B18B4FF80002AA74C /* AFNetworkReachabilityManager.m in Sources */,
 				2CAADC8418B4FD41002AA74C /* IFBaseViewController.m in Sources */,
 				2CDEB4C218C22BC800A2EFC0 /* THProgressView.m in Sources */,
+				2C866B7D18C39CB10061BC6C /* SwipeView.m in Sources */,
 				2CB0CBB418BFAAAE004EB3CE /* EZMicrophone.m in Sources */,
 				2CB0CB8F18BFA8F4004EB3CE /* WGSystemInfo.m in Sources */,
 				2CEFE70A18B250B900FFAFA2 /* IFAppDelegate.m in Sources */,
@@ -842,6 +937,7 @@
 				2CDEB4B818C22A3000A2EFC0 /* UITabBar+FlatUI.m in Sources */,
 				2CAADD0E18B4FF80002AA74C /* AFURLRequestSerialization.m in Sources */,
 				2CAADD2018B509C8002AA74C /* IFAudioViewController.m in Sources */,
+				2C866B8018C3A4BE0061BC6C /* IFMapCardView.m in Sources */,
 				2CDEB4B718C22A3000A2EFC0 /* UIStepper+FlatUI.m in Sources */,
 				2CAADD0A18B4FF80002AA74C /* AFHTTPSessionManager.m in Sources */,
 				2CDEB4BA18C22A3000A2EFC0 /* UIToolbar+FlatUI.m in Sources */,

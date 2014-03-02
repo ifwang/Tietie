@@ -10,4 +10,9 @@
 
 @interface IFBaseViewController : UIViewController
 
+- (void)showTextHud:(NSString*)text;
+
+- (void)showActivator;
+- (void)dismisActivator;
+
 @end

@@ -42,7 +42,6 @@ self.automaticallyAdjustsScrollViewInsets = NO; \
  */
 + (UIImage*)defaultClearImage;
 
-
 + (NSString*)appDocPath;
 
 @end

@@ -19,5 +19,5 @@
 #import "IFButton.h"
 #import "IFLabel.h"
 #import "WGSystemInfo.h"
-
+#import "MBProgressHUD.h"
 #endif

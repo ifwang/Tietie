@@ -10,6 +10,8 @@
 
 @interface IFBaseViewController ()
 
+@property (nonatomic, strong) UILabel *titleView;
+
 @end
 
 @implementation IFBaseViewController
@@ -36,7 +38,7 @@
     titleLabel.frame = CGRectMake(0, 0, size.width, 20);
     titleLabel.textColor = HEXCOLOR(0x272727);
     self.navigationItem.titleView = titleLabel;
-    
+    self.titleView = titleLabel;
     
     if ([self.navigationController.viewControllers count]> 1)
     {
@@ -51,6 +53,35 @@
     
 }
 
+- (void)setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    _titleView.text = title;
+    CGSize size = [_titleView.text sizeWithFont:_titleView.font constrainedToSize:CGSizeMake(200, 20)];
+    _titleView.frame = CGRectMake(0, 0, size.width, 20);
+}
+
+- (void)showTextHud:(NSString*)text
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.animationType = MBProgressHUDAnimationZoom;
+    hud.labelText = text;
+    [hud hide:YES afterDelay:1];
+}
+
+- (void)showActivator
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminate;
+    hud.animationType = MBProgressHUDAnimationZoom;
+}
+
+- (void)dismisActivator
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -59,7 +90,7 @@
 
 - (void)goBack
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

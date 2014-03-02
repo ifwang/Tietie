@@ -33,6 +33,7 @@
     // Do any additional setup after loading the view from its nib.
     
     _scanBtn.buttonColor = HEXCOLOR(0xD2691E);
+    _scanBtn.shadowColor = HEXCOLOR(0x8B0000);
     _scanBtn.titleLabel.font = [UIFont boldFlatFontOfSize:20];
     [_scanBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_scanBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
@@ -40,6 +41,7 @@
     _scanBtn.cornerRadius = 6.0f;
     
     _settingBtn.buttonColor = HEXCOLOR(0xF08080);
+    _settingBtn.shadowColor = HEXCOLOR(0xA52A2A);
     _settingBtn.titleLabel.font = [UIFont boldFlatFontOfSize:20];
     [_settingBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_settingBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
