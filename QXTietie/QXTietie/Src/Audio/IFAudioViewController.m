@@ -11,7 +11,7 @@
 #import "EZRecorder.h"
 #import "EZAudioPlayer.h"
 
-static CGFloat const kMaxRecordTime = 15;
+static CGFloat const kMaxRecordTime = 150;
 
 @interface IFAudioViewController ()<EZMicrophoneDelegate,IFAudioViewDelegate,EZAudioPlayerDelegate>
 
@@ -24,10 +24,7 @@ static CGFloat const kMaxRecordTime = 15;
  *  录音器
  */
 @property (nonatomic, strong) EZRecorder *recorder;
-/**
- *  目前音频URL
- */
-@property (nonatomic, strong) NSURL *currentUrl;
+
 /**
  *  播放器
  */
@@ -55,7 +52,7 @@ static CGFloat const kMaxRecordTime = 15;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"15秒视频";
+        self.title = @"15秒音频";
     }
     return self;
 }
@@ -67,6 +64,12 @@ static CGFloat const kMaxRecordTime = 15;
 
     // Do any additional setup after loading the view from its nib.
     [self initController];
+    
+    if (_currentUrl != nil)
+    {
+        [_audioView changeToStatus:AudioViewStatusRecorded];
+        _playBtn.enabled = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,16 +113,51 @@ static CGFloat const kMaxRecordTime = 15;
 {
     [_microphone startFetchingAudio];
     
+    [self deleteAudio:_currentUrl];
     self.currentUrl = [self createAudioFile];
     self.recorder = [EZRecorder recorderWithDestinationURL:_currentUrl andSourceFormat:_abDescription];
     _playBtn.enabled = NO;
+    
+    [self startRecordTimer];
 }
 
 - (void)onStopBtnClick
 {
+    if ([_recordTimer isValid])
+    {
+        [_recordTimer invalidate];
+    }
+    
     [_microphone stopFetchingAudio];
     [_recorder closeAudioFile];
     _playBtn.enabled = YES;
+}
+
+- (void)onReStartBtnClick
+{
+    if (_player.isPlaying)
+    {
+        [_player stop];
+    }
+    _playBtn.enabled = NO;
+}
+
+
+- (void)onSubmitBtnClick
+{
+    if (_microphone.microphoneOn)
+    {
+        [_microphone stopFetchingAudio];
+        [_recorder closeAudioFile];
+        
+        if (_player.isPlaying)
+        {
+            [_player stop];
+            _player = nil;
+        }
+    }
+    [_delegate onAudioControllerSubmitAudioWithURL:_currentUrl];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)play
@@ -127,6 +165,7 @@ static CGFloat const kMaxRecordTime = 15;
     if (_microphone.microphoneOn)
     {
         [_microphone stopFetchingAudio];
+        [_recorder closeAudioFile];
     }
     
     if (_player.isPlaying)
@@ -139,6 +178,8 @@ static CGFloat const kMaxRecordTime = 15;
     [self.player play];
     
 }
+
+
 
 #pragma mark - EZMicrophoneDelegate
 // Note that any callback that provides streamed audio data (like streaming microphone input) happens on a separate audio thread that should not be blocked. When we feed audio data into any of the UI components we need to explicity create a GCD block on the main thread to properly get the UI to work.
@@ -186,6 +227,11 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         if (_player.isPlaying&&!_player.endOfFile)
         {
             [self.audioView.audioPlot updateBuffer:buffer[0] withBufferSize:bufferSize];
+            
+            CGFloat duration = _player.totalDuration;
+            CGFloat currentTime = _player.currentTime;
+            [_audioView setProgress:(currentTime/duration)];
+            
         }
     });
 }
@@ -195,13 +241,22 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 - (void)startRecordTimer
 {
     _recordTime = 0;
-    self.recordTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(recordTimerFire) userInfo:nil repeats:YES];
+    self.recordTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(recordTimerFire) userInfo:nil repeats:YES];
                        
 }
 
 - (void)recordTimerFire
 {
-    
+    _recordTime ++;
+    if (_recordTime >= kMaxRecordTime)
+    {
+        [self onStopBtnClick];
+        [_audioView changeToStatus:AudioViewStatusRecorded];
+    }
+    else
+    {
+        [_audioView setProgress:((float)_recordTime/kMaxRecordTime)];
+    }
 }
 
 #pragma mark - Private Method

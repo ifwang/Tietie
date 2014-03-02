@@ -8,6 +8,19 @@
 
 #import "IFBaseViewController.h"
 
+@protocol IFAudioViewControllerDelegate
+
+- (void)onAudioControllerSubmitAudioWithURL:(NSURL*)audioURL;
+
+@end
+
 @interface IFAudioViewController : IFBaseViewController
+
+@property (nonatomic, weak) id<IFAudioViewControllerDelegate> delegate;
+
+/**
+ *  目前音频URL
+ */
+@property (nonatomic, strong) NSURL *currentUrl;
 
 @end

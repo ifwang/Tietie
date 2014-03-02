@@ -8,6 +8,7 @@
 
 #import "IFAppDelegate.h"
 #import "IFHomeViewController.h"
+#import "IFBaseNavigationController.h"
 @implementation IFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,7 +20,7 @@
     
     
     IFHomeViewController *vc = [[IFHomeViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    IFBaseNavigationController *nav = [[IFBaseNavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     
     

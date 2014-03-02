@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C866B3E18C30B6F0061BC6C /* IFCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */; };
+		2C866B3F18C30B6F0061BC6C /* IFCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */; };
+		2C866B4218C30B810061BC6C /* IFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4118C30B810061BC6C /* IFCardView.m */; };
+		2C866B4518C30DB50061BC6C /* IFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4418C30DB50061BC6C /* IFBaseNavigationController.m */; };
+		2C866B4818C310540061BC6C /* IFNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4718C310540061BC6C /* IFNavigationBar.m */; };
+		2C866B4A18C314590061BC6C /* NavigationBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B4918C314590061BC6C /* NavigationBackIcon.png */; };
 		2CAADC8418B4FD41002AA74C /* IFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */; };
 		2CAADC8E18B4FD8D002AA74C /* IFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAADC8C18B4FD8D002AA74C /* IFHomeViewController.m */; };
 		2CAADC8F18B4FD8D002AA74C /* IFHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CAADC8D18B4FD8D002AA74C /* IFHomeViewController.xib */; };
@@ -102,6 +108,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardViewController.h; sourceTree = "<group>"; };
+		2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCardViewController.m; sourceTree = "<group>"; };
+		2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFCardViewController.xib; sourceTree = "<group>"; };
+		2C866B4018C30B810061BC6C /* IFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardView.h; sourceTree = "<group>"; };
+		2C866B4118C30B810061BC6C /* IFCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCardView.m; sourceTree = "<group>"; };
+		2C866B4318C30DB50061BC6C /* IFBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFBaseNavigationController.h; sourceTree = "<group>"; };
+		2C866B4418C30DB50061BC6C /* IFBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBaseNavigationController.m; sourceTree = "<group>"; };
+		2C866B4618C310540061BC6C /* IFNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFNavigationBar.h; sourceTree = "<group>"; };
+		2C866B4718C310540061BC6C /* IFNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNavigationBar.m; sourceTree = "<group>"; };
+		2C866B4918C314590061BC6C /* NavigationBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBackIcon.png; sourceTree = "<group>"; };
 		2CAADC8218B4FD41002AA74C /* IFBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFBaseViewController.h; sourceTree = "<group>"; };
 		2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBaseViewController.m; sourceTree = "<group>"; };
 		2CAADC8B18B4FD8D002AA74C /* IFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFHomeViewController.h; sourceTree = "<group>"; };
@@ -270,6 +286,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C866B3918C3097B0061BC6C /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				2C866B3A18C3097B0061BC6C /* View */,
+				2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */,
+				2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */,
+				2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */,
+			);
+			name = Card;
+			path = Src/Card;
+			sourceTree = "<group>";
+		};
+		2C866B3A18C3097B0061BC6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C866B4018C30B810061BC6C /* IFCardView.h */,
+				2C866B4118C30B810061BC6C /* IFCardView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2CAADC8018B4FD41002AA74C /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +326,8 @@
 			children = (
 				2CAADC8218B4FD41002AA74C /* IFBaseViewController.h */,
 				2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */,
+				2C866B4318C30DB50061BC6C /* IFBaseNavigationController.h */,
+				2C866B4418C30DB50061BC6C /* IFBaseNavigationController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -388,6 +427,7 @@
 		2CAADD1618B50283002AA74C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2C866B4918C314590061BC6C /* NavigationBackIcon.png */,
 				2CDEB4C518C2376700A2EFC0 /* FlatResource */,
 				2CAADD1718B50283002AA74C /* ZBarLine@2x.png */,
 				2CAADD1818B50283002AA74C /* ZBarPickBg@2x.png */,
@@ -423,6 +463,8 @@
 				2CAADD2A18B50FA2002AA74C /* IFButton.m */,
 				2CAADD2C18B510C5002AA74C /* IFLabel.h */,
 				2CAADD2D18B510C5002AA74C /* IFLabel.m */,
+				2C866B4618C310540061BC6C /* IFNavigationBar.h */,
+				2C866B4718C310540061BC6C /* IFNavigationBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -585,6 +627,7 @@
 		2CEFE6FF18B250B900FFAFA2 /* QXTietie */ = {
 			isa = PBXGroup;
 			children = (
+				2C866B3918C3097B0061BC6C /* Card */,
 				2CAADD1B18B508E2002AA74C /* Audio */,
 				2CAADC9018B4FE0B002AA74C /* ThirdParty */,
 				2CAADC8918B4FD80002AA74C /* Home */,
@@ -716,6 +759,7 @@
 				2CB0CBBA18BFAAAE004EB3CE /* VERSION in Resources */,
 				2CDEB4D118C2376700A2EFC0 /* Lato-BlackItalic.ttf in Resources */,
 				2CDEB4D818C2376700A2EFC0 /* Lato-LightItalic.ttf in Resources */,
+				2C866B3F18C30B6F0061BC6C /* IFCardViewController.xib in Resources */,
 				2CAADC8F18B4FD8D002AA74C /* IFHomeViewController.xib in Resources */,
 				2CAADD1518B50137002AA74C /* IFScanerViewController.xib in Resources */,
 				2CDEB4D218C2376700A2EFC0 /* Lato-Bold.ttf in Resources */,
@@ -726,6 +770,7 @@
 				2CAADD1A18B50283002AA74C /* ZBarPickBg@2x.png in Resources */,
 				2CDEB4D618C2376700A2EFC0 /* Lato-Italic.ttf in Resources */,
 				2CDEB4D318C2376700A2EFC0 /* Lato-BoldItalic.ttf in Resources */,
+				2C866B4A18C314590061BC6C /* NavigationBackIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,7 +820,11 @@
 				2CAADD0918B4FF80002AA74C /* AFHTTPRequestOperationManager.m in Sources */,
 				2CB0CBAD18BFAAAE004EB3CE /* AEFloatConverter.m in Sources */,
 				2CDEB4A918C22A3000A2EFC0 /* FUIAlertView.m in Sources */,
+				2C866B4218C30B810061BC6C /* IFCardView.m in Sources */,
+				2C866B4818C310540061BC6C /* IFNavigationBar.m in Sources */,
+				2C866B3E18C30B6F0061BC6C /* IFCardViewController.m in Sources */,
 				2CAADD0818B4FF80002AA74C /* AFHTTPRequestOperation.m in Sources */,
+				2C866B4518C30DB50061BC6C /* IFBaseNavigationController.m in Sources */,
 				2CDEB4AD18C22A3000A2EFC0 /* FUISegmentedControl.m in Sources */,
 				2CB0CBB318BFAAAE004EB3CE /* EZAudioPlotGLKViewController.m in Sources */,
 				2CDEB4B518C22A3000A2EFC0 /* UIProgressView+FlatUI.m in Sources */,

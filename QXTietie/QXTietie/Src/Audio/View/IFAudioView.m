@@ -7,7 +7,6 @@
 //
 
 #import "IFAudioView.h"
-#import "FlatUIKit.h"
 #import "THProgressView.h"
 
 static NSString *kBeginText = @"开始";
@@ -21,6 +20,8 @@ static NSString *kEndText = @"结束";
 @interface IFAudioView()
 
 @property (nonatomic, strong) FUIButton *audioBtn;
+
+@property (nonatomic, strong) FUIButton *submitBtn;
 
 @property (nonatomic, strong) THProgressView *progressView;
 
@@ -77,12 +78,28 @@ static NSString *kEndText = @"结束";
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     button.shadowHeight = 3.0f;
     button.cornerRadius = 6.0f;
-    [button setTitle:@"hehe" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(audioAction:) forControlEvents:UIControlEventTouchUpInside];
     self.audioBtn = button;
     
     [self addSubview:button];
+    
+    height += button.frame.size.height + 10;
+    
+    
+    self.submitBtn = [[FUIButton alloc] initWithFrame:CGRectMake(40, height, 240, 40)];
+    _submitBtn.buttonColor = HEXCOLOR(0x2E8B57);
+    _submitBtn.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    _submitBtn.shadowHeight = 3.0f;
+    _submitBtn.cornerRadius = 6.0f;
+    [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_submitBtn setTitle:@"录好啦~" forState:UIControlStateNormal];
+    _submitBtn.alpha = 0;
+    [_submitBtn addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self addSubview:_submitBtn];
     
 }
 
@@ -109,12 +126,20 @@ static NSString *kEndText = @"结束";
             [_audioBtn setTitle:@"开始录音" forState:UIControlStateNormal];
             [_audioBtn setButtonColor:kViewTintColor];
             [_progressView setProgress:0 animated:YES];
+            
+            [UIView animateWithDuration:1 animations:^{
+                _submitBtn.alpha = 0;
+            }];
+            
             break;
         }
         case AudioViewStatusRecording:
         {
             [_audioBtn setTitle:@"停止录音" forState:UIControlStateNormal];
             [_audioBtn setButtonColor:kViewTintColor];
+            [UIView animateWithDuration:1 animations:^{
+                _submitBtn.alpha = 0;
+            }];
             break;
         }
         case AudioViewStatusRecorded:
@@ -122,6 +147,9 @@ static NSString *kEndText = @"结束";
             [_audioBtn setTitle:@"重新录音" forState:UIControlStateNormal];
             [_audioBtn setButtonColor:HEXCOLOR(0xCD5C5C)];
             [_progressView setProgress:1 animated:YES];
+            [UIView animateWithDuration:1 animations:^{
+                _submitBtn.alpha = 1;
+            }];
         }
     }
 }
@@ -145,9 +173,15 @@ static NSString *kEndText = @"结束";
         case AudioViewStatusRecorded:
         {
             [self changeToStatus:AudioViewStatusNew];
+            [_delegate onReStartBtnClick];
             break;
         }
     }
+}
+
+- (void)submitAction:(id)sender
+{
+    [_delegate onSubmitBtnClick];
 }
 
 /*

@@ -30,6 +30,10 @@ typedef NS_ENUM(NSUInteger, AudioViewStatus)
 
 - (void)onStopBtnClick;
 
+- (void)onReStartBtnClick;
+
+- (void)onSubmitBtnClick;
+
 @end
 
 @interface IFAudioView : UIView
@@ -51,5 +55,7 @@ typedef NS_ENUM(NSUInteger, AudioViewStatus)
 - (void)initView;
 
 - (void)setProgress:(CGFloat)progress;
+
+- (void)changeToStatus:(AudioViewStatus)status;
 
 @end
