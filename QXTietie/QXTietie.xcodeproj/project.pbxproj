@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C866B3E18C30B6F0061BC6C /* IFCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */; };
+		2C866B3E18C30B6F0061BC6C /* IFCardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */; };
 		2C866B3F18C30B6F0061BC6C /* IFCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */; };
 		2C866B4218C30B810061BC6C /* IFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4118C30B810061BC6C /* IFCardView.m */; };
 		2C866B4518C30DB50061BC6C /* IFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4418C30DB50061BC6C /* IFBaseNavigationController.m */; };
@@ -29,6 +29,11 @@
 		2C866B7D18C39CB10061BC6C /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7C18C39CB10061BC6C /* SwipeView.m */; };
 		2C866B8018C3A4BE0061BC6C /* IFMapCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B7F18C3A4BE0061BC6C /* IFMapCardView.m */; };
 		2C866B8218C3A6F20061BC6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866B8118C3A6F20061BC6C /* MapKit.framework */; };
+		2C866BAD18C3AFC70061BC6C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866BAC18C3AFC70061BC6C /* CoreLocation.framework */; };
+		2C866BAF18C3AFD00061BC6C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866BAE18C3AFD00061BC6C /* QuartzCore.framework */; };
+		2C866BB118C3AFDA0061BC6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866BB018C3AFDA0061BC6C /* libz.dylib */; };
+		2C866BB318C3AFED0061BC6C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866BB218C3AFEC0061BC6C /* OpenGLES.framework */; };
+		2C866BB518C3AFF30061BC6C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866BB418C3AFF30061BC6C /* SystemConfiguration.framework */; };
 		2CAADC8418B4FD41002AA74C /* IFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */; };
 		2CAADC8E18B4FD8D002AA74C /* IFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAADC8C18B4FD8D002AA74C /* IFHomeViewController.m */; };
 		2CAADC8F18B4FD8D002AA74C /* IFHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CAADC8D18B4FD8D002AA74C /* IFHomeViewController.xib */; };
@@ -68,6 +73,8 @@
 		2CB0CBB918BFAAAE004EB3CE /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0CBAB18BFAAAE004EB3CE /* CHANGELOG */; };
 		2CB0CBBA18BFAAAE004EB3CE /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0CBAC18BFAAAE004EB3CE /* VERSION */; };
 		2CB0CBBC18BFAC1D004EB3CE /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB0CBBB18BFAC1D004EB3CE /* GLKit.framework */; };
+		2CB3EC5D18C4DCFC004CA11A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB3EC5C18C4DCFC004CA11A /* Security.framework */; };
+		2CB3ED9518C4FC8C004CA11A /* IFLocationAnnotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3ED9418C4FC8C004CA11A /* IFLocationAnnotion.m */; };
 		2CD5E64B18B67338008BC32B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E64A18B67338008BC32B /* AudioToolbox.framework */; };
 		2CDEB4A918C22A3000A2EFC0 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEB48618C22A3000A2EFC0 /* FUIAlertView.m */; };
 		2CDEB4AA18C22A3000A2EFC0 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEB48818C22A3000A2EFC0 /* FUIButton.m */; };
@@ -125,7 +132,7 @@
 
 /* Begin PBXFileReference section */
 		2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardViewController.h; sourceTree = "<group>"; };
-		2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCardViewController.m; sourceTree = "<group>"; };
+		2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IFCardViewController.mm; sourceTree = "<group>"; };
 		2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFCardViewController.xib; sourceTree = "<group>"; };
 		2C866B4018C30B810061BC6C /* IFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardView.h; sourceTree = "<group>"; };
 		2C866B4118C30B810061BC6C /* IFCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCardView.m; sourceTree = "<group>"; };
@@ -162,6 +169,11 @@
 		2C866B7E18C3A4BE0061BC6C /* IFMapCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFMapCardView.h; sourceTree = "<group>"; };
 		2C866B7F18C3A4BE0061BC6C /* IFMapCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFMapCardView.m; sourceTree = "<group>"; };
 		2C866B8118C3A6F20061BC6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2C866BAC18C3AFC70061BC6C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2C866BAE18C3AFD00061BC6C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2C866BB018C3AFDA0061BC6C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2C866BB218C3AFEC0061BC6C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2C866BB418C3AFF30061BC6C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2CAADC8218B4FD41002AA74C /* IFBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFBaseViewController.h; sourceTree = "<group>"; };
 		2CAADC8318B4FD41002AA74C /* IFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBaseViewController.m; sourceTree = "<group>"; };
 		2CAADC8B18B4FD8D002AA74C /* IFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFHomeViewController.h; sourceTree = "<group>"; };
@@ -234,6 +246,10 @@
 		2CB0CBAC18BFAAAE004EB3CE /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		2CB0CBBB18BFAC1D004EB3CE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		2CB0CBBE18BFAFB9004EB3CE /* IFConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFConstant.h; sourceTree = "<group>"; };
+		2CB3EC4A18C4D71F004CA11A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		2CB3EC5C18C4DCFC004CA11A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2CB3ED9318C4FC8C004CA11A /* IFLocationAnnotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFLocationAnnotion.h; sourceTree = "<group>"; };
+		2CB3ED9418C4FC8C004CA11A /* IFLocationAnnotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFLocationAnnotion.m; sourceTree = "<group>"; };
 		2CD5E64A18B67338008BC32B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2CDEB48418C22A3000A2EFC0 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		2CDEB48518C22A3000A2EFC0 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
@@ -308,6 +324,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB3EC5D18C4DCFC004CA11A /* Security.framework in Frameworks */,
+				2C866BB518C3AFF30061BC6C /* SystemConfiguration.framework in Frameworks */,
+				2C866BB318C3AFED0061BC6C /* OpenGLES.framework in Frameworks */,
+				2C866BB118C3AFDA0061BC6C /* libz.dylib in Frameworks */,
+				2C866BAF18C3AFD00061BC6C /* QuartzCore.framework in Frameworks */,
+				2C866BAD18C3AFC70061BC6C /* CoreLocation.framework in Frameworks */,
 				2C866B8218C3A6F20061BC6C /* MapKit.framework in Frameworks */,
 				2CDEB4C418C236DC00A2EFC0 /* CoreText.framework in Frameworks */,
 				2CB0CBBC18BFAC1D004EB3CE /* GLKit.framework in Frameworks */,
@@ -336,7 +358,7 @@
 			children = (
 				2C866B3A18C3097B0061BC6C /* View */,
 				2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */,
-				2C866B3C18C30B6F0061BC6C /* IFCardViewController.m */,
+				2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */,
 				2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */,
 				2C866B7618C397380061BC6C /* IFImageListViewController.h */,
 				2C866B7718C397380061BC6C /* IFImageListViewController.m */,
@@ -359,10 +381,9 @@
 				2C866B5518C33DEF0061BC6C /* IFAudioCardView.m */,
 				2C866B6618C37AD60061BC6C /* IFImageCardView.h */,
 				2C866B6718C37AD60061BC6C /* IFImageCardView.m */,
-				2C866B6918C37CA30061BC6C /* IFCardButton.h */,
-				2C866B6A18C37CA30061BC6C /* IFCardButton.m */,
 				2C866B7E18C3A4BE0061BC6C /* IFMapCardView.h */,
 				2C866B7F18C3A4BE0061BC6C /* IFMapCardView.m */,
+				2CB3ED9618C4FDF6004CA11A /* Component */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -601,6 +622,17 @@
 			path = VERSION;
 			sourceTree = "<group>";
 		};
+		2CB3ED9618C4FDF6004CA11A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2C866B6918C37CA30061BC6C /* IFCardButton.h */,
+				2C866B6A18C37CA30061BC6C /* IFCardButton.m */,
+				2CB3ED9318C4FC8C004CA11A /* IFLocationAnnotion.h */,
+				2CB3ED9418C4FC8C004CA11A /* IFLocationAnnotion.m */,
+			);
+			name = Component;
+			sourceTree = "<group>";
+		};
 		2CDEB48318C22A3000A2EFC0 /* FlatUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +725,13 @@
 		2CEFE6F818B250B900FFAFA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CB3EC5C18C4DCFC004CA11A /* Security.framework */,
+				2CB3EC4A18C4D71F004CA11A /* MobileCoreServices.framework */,
+				2C866BB418C3AFF30061BC6C /* SystemConfiguration.framework */,
+				2C866BB218C3AFEC0061BC6C /* OpenGLES.framework */,
+				2C866BB018C3AFDA0061BC6C /* libz.dylib */,
+				2C866BAE18C3AFD00061BC6C /* QuartzCore.framework */,
+				2C866BAC18C3AFC70061BC6C /* CoreLocation.framework */,
 				2C866B8118C3A6F20061BC6C /* MapKit.framework */,
 				2CDEB4C318C236DC00A2EFC0 /* CoreText.framework */,
 				2CB0CBBB18BFAC1D004EB3CE /* GLKit.framework */,
@@ -893,6 +932,7 @@
 				2C866B5618C33DEF0061BC6C /* IFAudioCardView.m in Sources */,
 				2CDEB4AF18C22A3000A2EFC0 /* UIBarButtonItem+FlatUI.m in Sources */,
 				2CDEB4AB18C22A3000A2EFC0 /* FUICellBackgroundView.m in Sources */,
+				2CB3ED9518C4FC8C004CA11A /* IFLocationAnnotion.m in Sources */,
 				2CDEB4B218C22A3000A2EFC0 /* UIImage+FlatUI.m in Sources */,
 				2CAADC8E18B4FD8D002AA74C /* IFHomeViewController.m in Sources */,
 				2CAADD2B18B50FA2002AA74C /* IFButton.m in Sources */,
@@ -915,7 +955,7 @@
 				2CDEB4A918C22A3000A2EFC0 /* FUIAlertView.m in Sources */,
 				2C866B4218C30B810061BC6C /* IFCardView.m in Sources */,
 				2C866B4818C310540061BC6C /* IFNavigationBar.m in Sources */,
-				2C866B3E18C30B6F0061BC6C /* IFCardViewController.m in Sources */,
+				2C866B3E18C30B6F0061BC6C /* IFCardViewController.mm in Sources */,
 				2CAADD0818B4FF80002AA74C /* AFHTTPRequestOperation.m in Sources */,
 				2C866B4518C30DB50061BC6C /* IFBaseNavigationController.m in Sources */,
 				2CDEB4AD18C22A3000A2EFC0 /* FUISegmentedControl.m in Sources */,
@@ -1017,7 +1057,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-Objc",
+				);
 				SDKROOT = iphoneos7.0;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1049,31 +1094,45 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-Objc",
+				);
 				SDKROOT = iphoneos7.0;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
 		2CEFE72318B250B900FFAFA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QXTietie/QXTietie-Prefix.pch";
+				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;
 				INFOPLIST_FILE = "QXTietie/QXTietie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/ZBarSDK,
+					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie,
+					"$(SRCROOT)/libs/Release$(EFFECTIVE_PLATFORM_NAME)",
+					/Users/ifwang/Desktop/Code/Tietie/QXTietie,
+					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphoneos",
+					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphonesimulator",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1081,23 +1140,32 @@
 		2CEFE72418B250B900FFAFA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QXTietie/QXTietie-Prefix.pch";
+				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;
 				INFOPLIST_FILE = "QXTietie/QXTietie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/ZBarSDK,
+					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie,
+					"$(SRCROOT)/libs/Release$(EFFECTIVE_PLATFORM_NAME)",
+					/Users/ifwang/Desktop/Code/Tietie/QXTietie,
+					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphoneos",
+					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphonesimulator",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

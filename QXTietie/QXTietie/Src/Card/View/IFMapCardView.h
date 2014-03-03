@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-
+@class CLLocation;
 extern CGFloat const kMapCardViewHeight;
 @interface IFMapCardView : UIView
 
@@ -16,6 +15,6 @@ extern CGFloat const kMapCardViewHeight;
 
 @property (nonatomic, strong) NSString *locationText;
 
-@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, strong) CLLocation *location;
 
 @end

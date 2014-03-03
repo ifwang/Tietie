@@ -8,6 +8,8 @@
 
 #import "IFMapCardView.h"
 #import "IFCardButton.h"
+#import "IFLocationAnnotion.h"
+#import <MapKit/MapKit.h>
 CGFloat const kMapCardViewHeight = 150;
 
 @interface IFMapCardView()<MKMapViewDelegate>
@@ -15,9 +17,9 @@ CGFloat const kMapCardViewHeight = 150;
 @property (nonatomic, strong) FUIButton *addBtn;
 
 
-@property (nonatomic, strong) MKMapView *mapView;
-
 @property (nonatomic, strong) UILabel *locationLbl;
+
+@property (nonatomic, strong) MKMapView *mapView;
 
 @end
 
@@ -57,53 +59,97 @@ CGFloat const kMapCardViewHeight = 150;
 
 - (void)btnAction:(id)sender
 {
-    if(!_isLocated)
+    if (_mapView == nil)
     {
-        if (_mapView == nil)
-        {
-            self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(5, 5, 280, 95)];
-            _mapView.delegate = self;
-            _mapView.showsUserLocation = YES;
-            _mapView.alpha = 0;
-            [_addBtn addSubview:_mapView];
-            
-            self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(5, 102, 280, 16)];
-            _locationLbl.font = [UIFont flatFontOfSize:14];
-            _locationLbl.backgroundColor = [UIColor clearColor];
-            _locationLbl.textColor = HEXCOLOR(0x272727);
-            _locationLbl.alpha = 0;
-            [_addBtn addSubview:_locationLbl];
-            
-            
-            [UIView animateWithDuration:0.5 animations:^{
-                _mapView.alpha = 1;
-                _locationLbl.alpha = 1;
-            }];
-        }
+        [self startMaping];
     }
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+- (void)startMaping
+{
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(20, 20, 280, 110)];
+    [self addSubview:_mapView];
+    _mapView.delegate = self;
+    _mapView.showsUserLocation = YES;
+    _mapView.scrollEnabled = NO;
+    _mapView.alpha = 0;
+    
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 30)];
+    backView.backgroundColor = [UIColor blackColor];
+    backView.alpha = 0.5;
+    [_mapView addSubview:backView];
+    
+    
+    self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 7, 280, 16)];
+    _locationLbl.font = [UIFont flatFontOfSize:14];
+    _locationLbl.textColor = HEXCOLOR(0xFFFFFF);
+    _locationLbl.backgroundColor = [UIColor clearColor];
+    [_mapView addSubview:_locationLbl];
+
+    [UIView animateWithDuration:1 animations:^{
+        _mapView.alpha = 1;
+    }];
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
     //CLLocationCoordinate2D coords = userLocation.location.coordinate;
+    
+    
     CLLocation * newLocation = userLocation.location;
-    self.location = newLocation.coordinate;
-    // NSLog(@"2::::::%f,%f",newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+    _mapView.centerCoordinate = newLocation.coordinate;
+    self.location = newLocation;
+    
+    MKCoordinateSpan  span=MKCoordinateSpanMake(0.01,0.01);
+    MKCoordinateRegion  region=MKCoordinateRegionMake(newLocation.coordinate,span);
+    [_mapView setRegion:region animated:YES];
+    
+    IFLocationAnnotion *ano = [[IFLocationAnnotion alloc] initWithLatitue:newLocation.coordinate.latitude
+                                                                longitude:newLocation.coordinate.longitude];
+    [_mapView addAnnotation:ano];
+    
+    
+     NSLog(@"2::::::%f,%f",newLocation.coordinate.latitude,newLocation.coordinate.longitude);
     //    //解析并获取当前坐标对应得地址信息
-    
-    
-    
     CLGeocoder *clGeoCoder = [[CLGeocoder alloc] init];
     CLGeocodeCompletionHandler handle = ^(NSArray *placemarks,NSError *error)
     {
         for (CLPlacemark * placeMark in placemarks)
         {
-            self.locationLbl.text = placeMark.name;
-            _locationText = placeMark.name;
+            self.locationText = [NSString stringWithFormat:@"%@,%@,%@,%@",placeMark.name,placeMark.thoroughfare,placeMark.locality,placeMark.country];
+            NSLog(@"位置信息:%@",_locationText);
+            _locationLbl.text = _locationText;
+            _mapView.showsUserLocation = NO;
         }
     };
     [clGeoCoder reverseGeocodeLocation:newLocation completionHandler:handle];
-    _isLocated = YES;
-    
 }
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    // Initialize each view
+    for (MKPinAnnotationView *mkaview in views)
+    {
+        // 当前位置 的大头针设为紫色，并且没有右边的附属按钮
+        
+        mkaview.pinColor = MKPinAnnotationColorPurple;
+        mkaview.rightCalloutAccessoryView = nil;
+        mkaview.animatesDrop = YES;
+        mkaview.canShowCallout=NO;
+    }
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    MKAnnotationView *ano = [mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+    if(ano == nil)
+    {
+        ano = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+    }
+    ano.annotation = annotation;
+    
+    return ano;
+}
+
 
 @end
