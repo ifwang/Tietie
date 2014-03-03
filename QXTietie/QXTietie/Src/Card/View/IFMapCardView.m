@@ -79,7 +79,6 @@ CGFloat const kMapCardViewHeight = 150;
     backView.alpha = 0.5;
     [_mapView addSubview:backView];
     
-    
     self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 7, 280, 16)];
     _locationLbl.font = [UIFont flatFontOfSize:14];
     _locationLbl.textColor = HEXCOLOR(0xFFFFFF);
