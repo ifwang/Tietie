@@ -13,13 +13,16 @@
 #import "IFImagePickerUtil.h"
 #import "UIImage+Compress.h"
 #import "IFImageListViewController.h"
-@interface IFCardViewController ()<IFAudioViewControllerDelegate,IFCardViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "IFUploadViewController.h"
+@interface IFCardViewController ()<IFAudioViewControllerDelegate,IFCardViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSURL *audioURL;
 
 @property (nonatomic, strong) IFCardView *cardView;
 
 @property (nonatomic, strong) NSMutableArray *pickedImages;
+
+@property (nonatomic, strong) NSMutableArray *compressImages;
 
 @end
 
@@ -34,6 +37,8 @@
         
         self.title = @"礼物卡片";
         self.pickedImages = [[NSMutableArray alloc] init];
+        self.compressImages = [[NSMutableArray alloc] init];
+
     }
     return self;
 }
@@ -57,7 +62,21 @@
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
     
+    FUIButton *button = [[FUIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    button.buttonColor = HEXCOLOR(0x2894FF);
+    button.shadowColor = HEXCOLOR(0x005757);
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.shadowHeight = 2;
+    button.cornerRadius = 3;
+    [button setTitle:@"提交" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont flatFontOfSize:14];
+    [button addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = item;
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -68,6 +87,50 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Submit Method
+
+- (void)submit
+{
+    if ([_cardView gitfText].length == 0)
+    {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.animationType = MBProgressHUDAnimationZoomOut;
+        hud.labelText = @"祝福寄语不能为空";
+        [hud hide:YES afterDelay:0.5];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定上传内容？" delegate:self cancelButtonTitle:@"再改改" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        IFGiftVO *giftVO = [[IFGiftVO alloc] init];
+        if (_audioURL)
+        {
+            giftVO.audioUrl = _audioURL;
+        }
+        
+        giftVO.imageList = _pickedImages;
+        
+        giftVO.text = [_cardView gitfText];
+        
+        giftVO.location = _cardView.location;
+        
+        giftVO.locationText = _cardView.locationText;
+        
+        IFUploadViewController *vc = [[IFUploadViewController alloc] init];
+        vc.gift = giftVO;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 #pragma mark - KeyBoard Method
@@ -199,7 +262,7 @@
             [_pickedImages addObject:theImage];
             
             UIImage *compressImg = [theImage scaleToSize:CGSizeMake(80, 80)];
-            
+            [_compressImages addObject:compressImg];
             dispatch_async(dispatch_get_main_queue(),^{
                 [self dismisActivator];
                 [_cardView addImageToCard:compressImg];

@@ -21,6 +21,8 @@ self.automaticallyAdjustsScrollViewInsets = NO; \
 
 @interface IFCommon : NSObject
 
++ (NSString*)UUID;
+
 /**
  *  获取屏幕尺寸
  */
@@ -43,5 +45,7 @@ self.automaticallyAdjustsScrollViewInsets = NO; \
 + (UIImage*)defaultClearImage;
 
 + (NSString*)appDocPath;
+
++ (NSString *)ToHex:(long long int)tmpid;
 
 @end

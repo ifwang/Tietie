@@ -93,7 +93,7 @@ CGFloat const kMapCardViewHeight = 150;
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     //CLLocationCoordinate2D coords = userLocation.location.coordinate;
-    
+    _isLocated = YES;
     
     CLLocation * newLocation = userLocation.location;
     _mapView.centerCoordinate = newLocation.coordinate;

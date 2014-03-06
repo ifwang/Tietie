@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 @protocol IFCardViewDelegate
 
 - (void)onAudioViewClick;
@@ -40,5 +41,25 @@
  *  @param image 添加的照片
  */
 - (void)addImageToCard:(UIImage*)image;
+
+/**
+ *  获取用户输入寄语
+ *
+ *  @return 寄语文本
+ */
+- (NSString*)gitfText;
+
+/**
+ *  获取用户地址
+ *
+ *  @return 地址文本
+ */
+- (NSString*)locationText;
+/**
+ *  获取用户位置
+ *
+ *  @return 用户位置
+ */
+- (CLLocation*)location;
 
 @end

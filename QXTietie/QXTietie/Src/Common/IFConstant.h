@@ -14,4 +14,6 @@
 
 #define kMapAppKey @"mes4Hmc6yA5T0rv0ITb0bVaz"
 
+#define kUUIDKey @"UUIDKey"
+
 #endif

@@ -43,7 +43,7 @@
  */
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
-                                        error:(NSError * __autoreleasing *)error;
+                                        error:(NSError *__autoreleasing *)error;
 
 @end
 
@@ -138,7 +138,7 @@ forHTTPHeaderField:(NSString *)field;
 
  @param block A block that defines a process of encoding parameters into a query string. This block returns the query string and takes three arguments: the request, the parameters to encode, and the error that occurred when attempting to encode parameters for the given request.
  */
-- (void)setQueryStringSerializationWithBlock:(NSString * (^)(NSURLRequest *request, NSDictionary *parameters, NSError * __autoreleasing *error))block;
+- (void)setQueryStringSerializationWithBlock:(NSString * (^)(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error))block;
 
 ///-------------------------------
 /// @name Creating Request Objects
@@ -194,21 +194,6 @@ forHTTPHeaderField:(NSString *)field;
                                              parameters:(NSDictionary *)parameters
                               constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                                                   error:(NSError * __autoreleasing *)error;
-
-/**
- Creates an `NSMutableURLRequest` by removing the `HTTPBodyStream` from a request, and asynchronously writing its contents into the specified file, invoking the completion handler when finished.
- 
- @param request The multipart form request.
- @param fileURL The file URL to write multipart form contents to.
- @param handler A handler block to execute.
- 
- @discussion There is a bug in `NSURLSessionTask` that causes requests to not send a `Content-Length` header when streaming contents from an HTTP body, which is notably problematic when interacting with the Amazon S3 webservice. As a workaround, this method takes a request constructed with `multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error:`, or any other request with an `HTTPBodyStream`, writes the contents to the specified file and returns a copy of the original request with the `HTTPBodyStream` property set to `nil`. From here, the file can either be passed to `AFURLSessionManager -uploadTaskWithRequest:fromFile:progress:completionHandler:`, or have its contents read into an `NSData` that's assigned to the `HTTPBody` property of the request.
-
- @see https://github.com/AFNetworking/AFNetworking/issues/1398
- */
-- (NSMutableURLRequest *)requestWithMultipartFormRequest:(NSURLRequest *)request
-                             writingStreamContentsToFile:(NSURL *)fileURL
-                                       completionHandler:(void (^)(NSError *error))handler;
 
 @end
 
@@ -334,6 +319,11 @@ extern NSTimeInterval const kAFUploadStream3GSuggestedDelay;
 #pragma mark -
 
 @interface AFJSONRequestSerializer : AFHTTPRequestSerializer
+
+/**
+ The property list format. Possible values are described in "NSPropertyListFormat".
+ */
+@property (nonatomic, assign) NSPropertyListFormat format;
 
 /**
  Options for writing the request JSON data from Foundation objects. For possible values, see the `NSJSONSerialization` documentation section "NSJSONWritingOptions". `0` by default.

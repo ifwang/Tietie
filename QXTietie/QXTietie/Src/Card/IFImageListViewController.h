@@ -10,7 +10,7 @@
 
 @interface IFImageListViewController : IFBaseViewController
 
-@property (nonatomic, assign) NSUInteger currentIndex;
+@property (nonatomic, assign) NSInteger currentIndex;
 
 @property (nonatomic, strong) NSMutableArray *images;
 

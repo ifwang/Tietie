@@ -181,5 +181,49 @@ typedef NS_ENUM(NSUInteger, kCardViewSection)
     [_imageView addImage:image];
 }
 
+#pragma mark - public Method
+
+/**
+ *  获取用户输入寄语
+ *
+ *  @return 寄语文本
+ */
+- (NSString*)gitfText
+{
+    return _textView.text;
+}
+
+/**
+ *  获取用户地址
+ *
+ *  @return 地址文本
+ */
+- (NSString*)locationText
+{
+    if (_mapView.isLocated)
+    {
+        return _mapView.locationText;
+    }
+    else
+    {
+        return nil;
+    }
+}
+/**
+ *  获取用户位置
+ *
+ *  @return 用户位置
+ */
+- (CLLocation*)location
+{
+    if (_mapView.isLocated)
+    {
+        return _mapView.location;
+    }
+    else
+    {
+        return nil;
+    }
+}
 
 @end
