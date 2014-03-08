@@ -10,4 +10,6 @@
 
 @interface IFCardViewController : IFBaseViewController
 
+@property (nonatomic, strong) NSString *cardId;
+
 @end

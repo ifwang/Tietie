@@ -61,7 +61,7 @@
     }
     else
     {
-        self.title = [NSString stringWithFormat:@"相册卡片(%ld/%ld)",_currentIndex+1,[_images count]];
+        self.title = [NSString stringWithFormat:@"相册卡片(%d/%d)",_currentIndex+1,[_images count]];
     }
 }
                   

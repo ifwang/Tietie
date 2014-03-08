@@ -47,5 +47,13 @@ self.automaticallyAdjustsScrollViewInsets = NO; \
 + (NSString*)appDocPath;
 
 + (NSString *)ToHex:(long long int)tmpid;
+/**
+ *  从http链接中提取出卡片id参数
+ *
+ *  @param url 提取的链接
+ *
+ *  @return 卡片id
+ */
++ (NSString*)cardIdFromUrl:(NSString*)url;
 
 @end

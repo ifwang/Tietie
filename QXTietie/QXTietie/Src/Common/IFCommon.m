@@ -105,5 +105,24 @@
     return str;
 }
 
++ (NSString*)cardIdFromUrl:(NSString*)url
+{
+    NSRange range = [url rangeOfString:@"="];
+    if (range.location != NSNotFound)
+    {
+        NSString *cardId = [url substringFromIndex:range.location + 1];
+        
+        NSLog(@"cardId:%@",cardId);
+        
+        return cardId;
+    }
+    else
+    {
+        return @"";
+    }
+
+}
+
+
 
 @end

@@ -16,4 +16,6 @@
 
 #define kUUIDKey @"UUIDKey"
 
+#define kCardIDValid @"http://112.124.101.16/check.php"
+
 #endif

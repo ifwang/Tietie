@@ -69,19 +69,16 @@ CGFloat const kAudioCardViewHeight = 90;
 
 - (void)setAudioViewHidden:(BOOL)hidden
 {
-    [UIView animateWithDuration:0.5 animations:^{
         if (hidden)
         {
-            _emptyLbl.alpha = 1;
-            _micIcon.alpha = 1;
-            _audioPlot.alpha = 0;
+            _emptyLbl.text = @"点击制作声音卡片";
+
         }
         else
         {
-            _emptyLbl.alpha = 0;
-            _micIcon.alpha = 0;
-            _audioPlot.alpha = 1;        }
-    }];
+            _emptyLbl.text = @"点击修改您的声音卡片";
+
+        }
 }
 
 - (void)addTarget:(id)target onSeletor:(SEL)seletor

@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 @interface IFGiftVO : NSObject
 
+@property (nonatomic, strong) NSString *cardId;
+
 @property (nonatomic, strong) NSURL *audioUrl;
 
 @property (nonatomic, strong) NSArray *imageList;
