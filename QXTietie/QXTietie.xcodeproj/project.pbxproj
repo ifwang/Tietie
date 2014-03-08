@@ -137,6 +137,9 @@
 		2CEFE71F18B250B900FFAFA2 /* QXTietieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFE71E18B250B900FFAFA2 /* QXTietieTests.m */; };
 		2CF0BC7C18C8E5FF0035260B /* IFUploadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0BC7B18C8E5FF0035260B /* IFUploadModel.m */; };
 		2CF0BC8018C8E6490035260B /* IFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0BC7F18C8E6490035260B /* IFTask.m */; };
+		2CF0BC9B18C8F3340035260B /* MDRadialProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0BC8D18C8F3340035260B /* MDRadialProgressLabel.m */; };
+		2CF0BC9C18C8F3340035260B /* MDRadialProgressTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0BC8F18C8F3340035260B /* MDRadialProgressTheme.m */; };
+		2CF0BC9D18C8F3340035260B /* MDRadialProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0BC9118C8F3340035260B /* MDRadialProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +375,12 @@
 		2CF0BC7B18C8E5FF0035260B /* IFUploadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFUploadModel.m; sourceTree = "<group>"; };
 		2CF0BC7E18C8E6490035260B /* IFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTask.h; sourceTree = "<group>"; };
 		2CF0BC7F18C8E6490035260B /* IFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTask.m; sourceTree = "<group>"; };
+		2CF0BC8C18C8F3340035260B /* MDRadialProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRadialProgressLabel.h; sourceTree = "<group>"; };
+		2CF0BC8D18C8F3340035260B /* MDRadialProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRadialProgressLabel.m; sourceTree = "<group>"; };
+		2CF0BC8E18C8F3340035260B /* MDRadialProgressTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRadialProgressTheme.h; sourceTree = "<group>"; };
+		2CF0BC8F18C8F3340035260B /* MDRadialProgressTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRadialProgressTheme.m; sourceTree = "<group>"; };
+		2CF0BC9018C8F3340035260B /* MDRadialProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRadialProgressView.h; sourceTree = "<group>"; };
+		2CF0BC9118C8F3340035260B /* MDRadialProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRadialProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -630,6 +639,7 @@
 		2CAADC9018B4FE0B002AA74C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2CF0BC8118C8F3340035260B /* MDRadialProgress */,
 				2C9187AC18C7A33F00D9CEF1 /* QiniuSDK */,
 				2CDEB4BF18C22BC800A2EFC0 /* THProgressView */,
 				2CDEB48318C22A3000A2EFC0 /* FlatUI */,
@@ -926,6 +936,19 @@
 			name = Task;
 			sourceTree = "<group>";
 		};
+		2CF0BC8118C8F3340035260B /* MDRadialProgress */ = {
+			isa = PBXGroup;
+			children = (
+				2CF0BC8C18C8F3340035260B /* MDRadialProgressLabel.h */,
+				2CF0BC8D18C8F3340035260B /* MDRadialProgressLabel.m */,
+				2CF0BC8E18C8F3340035260B /* MDRadialProgressTheme.h */,
+				2CF0BC8F18C8F3340035260B /* MDRadialProgressTheme.m */,
+				2CF0BC9018C8F3340035260B /* MDRadialProgressView.h */,
+				2CF0BC9118C8F3340035260B /* MDRadialProgressView.m */,
+			);
+			path = MDRadialProgress;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1051,6 +1074,8 @@
 				2C866B5318C3332F0061BC6C /* IFTextView.m in Sources */,
 				2CB0CBB818BFAAAE004EB3CE /* TPCircularBuffer.c in Sources */,
 				2CDEB4B018C22A3000A2EFC0 /* UIColor+FlatUI.m in Sources */,
+				2CF0BC9B18C8F3340035260B /* MDRadialProgressLabel.m in Sources */,
+				2CF0BC9C18C8F3340035260B /* MDRadialProgressTheme.m in Sources */,
 				2CDEB4B918C22A3000A2EFC0 /* UITableViewCell+FlatUI.m in Sources */,
 				2C9187D918C7A33F00D9CEF1 /* QiniuBlkputRet.m in Sources */,
 				2C866B6818C37AD60061BC6C /* IFImageCardView.m in Sources */,
@@ -1108,6 +1133,7 @@
 				2C866B4518C30DB50061BC6C /* IFBaseNavigationController.m in Sources */,
 				2C9187DD18C7A33F00D9CEF1 /* QiniuSimpleUploader.m in Sources */,
 				2C91876618C795FD00D9CEF1 /* IFUploadViewController.m in Sources */,
+				2CF0BC9D18C8F3340035260B /* MDRadialProgressView.m in Sources */,
 				2CDEB4AD18C22A3000A2EFC0 /* FUISegmentedControl.m in Sources */,
 				2CB0CBB318BFAAAE004EB3CE /* EZAudioPlotGLKViewController.m in Sources */,
 				2CDEB4B518C22A3000A2EFC0 /* UIProgressView+FlatUI.m in Sources */,

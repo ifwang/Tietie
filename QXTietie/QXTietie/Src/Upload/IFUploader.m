@@ -47,80 +47,26 @@ static NSString *kBucketName = @"tietie-qrcode";
 
 - (void)uploadFile:(NSString *)filePath bucket:(NSString *)bucket key:(NSString *)key
 {
-    
-    
     NSFileManager *manager = [NSFileManager defaultManager];
     
     if ([manager fileExistsAtPath:filePath]) {
         
-        self.uploader = [[QiniuSimpleUploader alloc ] initWithToken:[self tokenWithScope:bucket]];
+        self.uploader = [[QiniuSimpleUploader alloc ] initWithToken:[self tokenWithScope:bucket key:key]];
         _uploader.delegate = self;
         
         [_uploader uploadFile:filePath key:key extra:nil];
     }
 }
 
-- (NSString *)tokenWithScope:(NSString *)scope
+- (NSString *)tokenWithScope:(NSString *)scope key:(NSString*)key
 {
     IFUploadToken *policy = [[IFUploadToken alloc] init];
-    policy.scope = scope;
+    policy.scope = [NSString stringWithFormat:@"%@:%@",scope,key];
     policy.expires = 36000;
     return [policy makeToken:kAccessKey secretKey:kSecretKey];
 }
 
 
-//- (void)uploadImage:(UIImage*)image
-//{
-//    NSString *key = [self currentImageKeyName];
-//    
-//    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:key];
-//    NSLog(@"Upload Path: %@", filePath);
-//    
-//    NSData *webData = UIImageJPEGRepresentation(image, 1);
-//    
-//    [webData writeToFile:filePath atomically:YES];
-//
-//    [self uploadFile:filePath bucket:kBucketName key:key];
-//}
-//
-//- (void)uploadAudio:(NSURL*)url
-//{
-//    NSString *key = [self currentAudioKeyName];
-//    
-//    [self uploadFile:url.absoluteString bucket:kBucketName key:key];
-//}
-//
-//
-//
-//- (NSString*)currentImageKeyName
-//{
-//    NSString *uuid = [IFCommon UUID];
-//    
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat: @"yyyy-MM-dd-HH-mm-ss"];
-//    //Optionally for time zone conversions
-//    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-//    
-//    NSString *timeDesc = [formatter stringFromDate:[NSDate date]];
-//    NSString *key = [NSString stringWithFormat:@"%@_%@%@",uuid,timeDesc, @".jpg"];
-//    
-//    
-//    return key;
-//}
-//- (NSString*)currentAudioKeyName
-//{
-//    NSString *uuid = [IFCommon UUID];
-//    
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat: @"yyyy-MM-dd-HH-mm-ss"];
-//    //Optionally for time zone conversions
-//    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-//    
-//    NSString *timeDesc = [formatter stringFromDate:[NSDate date]];
-//    NSString *key = [NSString stringWithFormat:@"%@_%@%@",uuid,timeDesc, @".caf"];
-//    
-//    return key;
-//}
 
 #pragma mark - uploadSuccess
 
@@ -129,6 +75,9 @@ static NSString *kBucketName = @"tietie-qrcode";
 {
     
     NSLog(@"upload:%@::::%f",filePath,percent);
+    [_delegate onUploadInProgress:percent];
+    
+    
     
 }
 
@@ -139,7 +88,7 @@ static NSString *kBucketName = @"tietie-qrcode";
     NSString *message = [NSString stringWithFormat:@"Successfully uploaded %@ with hash: %@",  filePath, hash];
     NSLog(@"%@", message);
 
-    
+    [_delegate onUploadSuccess];
     
 }
 
@@ -148,6 +97,7 @@ static NSString *kBucketName = @"tietie-qrcode";
 {
     NSLog(@"upload error!:%@::::",error);
 
+    [_delegate onUploadFailed];
 }
 
 @end
