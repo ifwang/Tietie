@@ -70,7 +70,10 @@
  */
 - (IBAction)onQRCodeScanBtnClicked:(id)sender
 {
-    [self scanAction];
+//    [self scanAction];
+    IFCardViewController *vc = [[IFCardViewController alloc] init];
+    vc.cardId = @"42WkE1JQihVut3BCKPyc";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -178,6 +181,7 @@
              dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
              dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                  IFCardViewController *vc = [[IFCardViewController alloc] init];
+                 vc.cardId = cardId;
                  [self.navigationController pushViewController:vc animated:YES];
              });
 

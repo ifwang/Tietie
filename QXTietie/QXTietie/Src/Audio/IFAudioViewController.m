@@ -95,6 +95,11 @@ static CGFloat const kMaxRecordTime = 150;
 
 - (void)initController
 {
+
+    
+    
+//    self.microphone = [[EZMicrophone alloc] initWithMicrophoneDelegate:self withAudioStreamBasicDescription:format];
+    
     self.microphone = [[EZMicrophone alloc] initWithMicrophoneDelegate:self];
     
     self.audioView = (IFAudioView*)self.view;
@@ -115,10 +120,30 @@ static CGFloat const kMaxRecordTime = 150;
     
     [self deleteAudio:_currentUrl];
     self.currentUrl = [self createAudioFile];
+    
+    
+    
     self.recorder = [EZRecorder recorderWithDestinationURL:_currentUrl andSourceFormat:_abDescription];
+    
     _playBtn.enabled = NO;
     
     [self startRecordTimer];
+}
+
+- (AudioStreamBasicDescription)audioFormat
+{
+    AudioStreamBasicDescription format; // 声音格式设置，这些设置要和采集时的配置一致
+    memset(&format, 0, sizeof(format));
+    format.mSampleRate = 11025.0; // 采样率 (立体声 = 8000)
+    format.mFormatID = kAudioFormatLinearPCM; // PCM 格式
+    format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
+    format.mChannelsPerFrame = 2;  // 1:单声道；2:立体声
+    format.mBitsPerChannel = 16; // 语音每采样点占用位数
+    format.mBytesPerFrame = format.mBitsPerChannel / format.mChannelsPerFrame;
+    format.mFramesPerPacket = 1;
+    format.mBytesPerPacket = format.mBytesPerFrame * format.mFramesPerPacket;
+    
+    return format;
 }
 
 - (void)onStopBtnClick
@@ -199,6 +224,7 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 -(void)microphone:(EZMicrophone *)microphone hasAudioStreamBasicDescription:(AudioStreamBasicDescription)audioStreamBasicDescription {
     // The AudioStreamBasicDescription of the microphone stream. This is useful when configuring the EZRecorder or telling another component what audio format type to expect.
     // Here's a print function to allow you to inspect it a little easier
+    [EZAudio printASBD:audioStreamBasicDescription];
     _abDescription = audioStreamBasicDescription;
 }
 

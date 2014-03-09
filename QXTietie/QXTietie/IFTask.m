@@ -32,7 +32,7 @@
 {
     if(self = [super init])
     {
-        self.format = @".caf";
+        self.format = @".mp3";
         self.taskType = IFTaskTypeAudio;
     }
     return self;

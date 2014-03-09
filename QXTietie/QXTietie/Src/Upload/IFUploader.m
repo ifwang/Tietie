@@ -25,6 +25,7 @@ static NSString *kBucketName = @"tietie-qrcode";
 - (void)uploadTask:(IFTask*)task
 {
     NSString *key = [self currentKeyWithTask:task];
+    task.key = key;
     [self uploadFile:task.fileUrl bucket:kBucketName key:key];
 }
 

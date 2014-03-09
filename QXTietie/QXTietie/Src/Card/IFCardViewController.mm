@@ -113,6 +113,7 @@
     if (buttonIndex == 1)
     {
         IFGiftVO *giftVO = [[IFGiftVO alloc] init];
+        giftVO.cardId = _cardId;
         if (_audioURL)
         {
             giftVO.audioUrl = _audioURL;

@@ -22,6 +22,8 @@ typedef NS_ENUM(NSUInteger, IFTaskType)
 
 @property (nonatomic, strong) NSString *fileUrl;
 
+@property (nonatomic, copy) NSString *key;
+
 @end
 
 

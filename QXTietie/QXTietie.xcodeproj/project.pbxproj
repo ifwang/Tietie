@@ -51,6 +51,9 @@
 		2C8BCEAB18CB24A800880A54 /* IFScanLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BCEAA18CB24A800880A54 /* IFScanLayerView.m */; };
 		2C8BCEAF18CB6CA500880A54 /* IFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BCEAD18CB6CA500880A54 /* IFWebViewController.m */; };
 		2C8BCEB018CB6CA500880A54 /* IFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C8BCEAE18CB6CA500880A54 /* IFWebViewController.xib */; };
+		2C8BCEB418CB701E00880A54 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8BCEB318CB701E00880A54 /* libmp3lame.a */; };
+		2C8BCEB718CB707A00880A54 /* IFAudioUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BCEB618CB707A00880A54 /* IFAudioUtil.m */; };
+		2C8BCEBA18CB8F3D00880A54 /* NSString+UTF8.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BCEB918CB8F3D00880A54 /* NSString+UTF8.m */; };
 		2C91875718C78FD400D9CEF1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C91875618C78FD400D9CEF1 /* CFNetwork.framework */; };
 		2C91875818C78FDB00D9CEF1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB3EC4A18C4D71F004CA11A /* MobileCoreServices.framework */; };
 		2C91875A18C78FEA00D9CEF1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C91875918C78FEA00D9CEF1 /* CoreFoundation.framework */; };
@@ -260,6 +263,12 @@
 		2C8BCEAC18CB6CA500880A54 /* IFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFWebViewController.h; sourceTree = "<group>"; };
 		2C8BCEAD18CB6CA500880A54 /* IFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFWebViewController.m; sourceTree = "<group>"; };
 		2C8BCEAE18CB6CA500880A54 /* IFWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFWebViewController.xib; sourceTree = "<group>"; };
+		2C8BCEB218CB701E00880A54 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		2C8BCEB318CB701E00880A54 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		2C8BCEB518CB707A00880A54 /* IFAudioUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAudioUtil.h; sourceTree = "<group>"; };
+		2C8BCEB618CB707A00880A54 /* IFAudioUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAudioUtil.m; sourceTree = "<group>"; };
+		2C8BCEB818CB8F3D00880A54 /* NSString+UTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UTF8.h"; sourceTree = "<group>"; };
+		2C8BCEB918CB8F3D00880A54 /* NSString+UTF8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UTF8.m"; sourceTree = "<group>"; };
 		2C91875618C78FD400D9CEF1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2C91875918C78FEA00D9CEF1 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		2C91875B18C78FF800D9CEF1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -457,6 +466,7 @@
 				2C91875A18C78FEA00D9CEF1 /* CoreFoundation.framework in Frameworks */,
 				2C8BCEA218CB20C300880A54 /* libzbar.a in Frameworks */,
 				2C91875818C78FDB00D9CEF1 /* MobileCoreServices.framework in Frameworks */,
+				2C8BCEB418CB701E00880A54 /* libmp3lame.a in Frameworks */,
 				2C91875718C78FD400D9CEF1 /* CFNetwork.framework in Frameworks */,
 				2CB3EC5D18C4DCFC004CA11A /* Security.framework in Frameworks */,
 				2C866BB518C3AFF30061BC6C /* SystemConfiguration.framework in Frameworks */,
@@ -619,6 +629,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2C8BCEB118CB701E00880A54 /* Lame */ = {
+			isa = PBXGroup;
+			children = (
+				2C8BCEB218CB701E00880A54 /* lame.h */,
+				2C8BCEB318CB701E00880A54 /* libmp3lame.a */,
+			);
+			path = Lame;
+			sourceTree = "<group>";
+		};
 		2C91875D18C7901300D9CEF1 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +739,10 @@
 				2CB0CBBE18BFAFB9004EB3CE /* IFConstant.h */,
 				2C866B5B18C3774D0061BC6C /* IFImagePickerUtil.h */,
 				2C866B5C18C3774D0061BC6C /* IFImagePickerUtil.m */,
+				2C8BCEB518CB707A00880A54 /* IFAudioUtil.h */,
+				2C8BCEB618CB707A00880A54 /* IFAudioUtil.m */,
+				2C8BCEB818CB8F3D00880A54 /* NSString+UTF8.h */,
+				2C8BCEB918CB8F3D00880A54 /* NSString+UTF8.m */,
 			);
 			name = Common;
 			path = Src/Common;
@@ -798,6 +821,7 @@
 		2CAADC9018B4FE0B002AA74C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2C8BCEB118CB701E00880A54 /* Lame */,
 				2C8BCE6B18CB20C300880A54 /* ZBarSDK */,
 				2CF0BC8118C8F3340035260B /* MDRadialProgress */,
 				2C9187AC18C7A33F00D9CEF1 /* QiniuSDK */,
@@ -1291,6 +1315,7 @@
 				2C866B6E18C387AD0061BC6C /* LBorderView.m in Sources */,
 				2C866B6B18C37CA30061BC6C /* IFCardButton.m in Sources */,
 				2CAADD2E18B510C5002AA74C /* IFLabel.m in Sources */,
+				2C8BCEBA18CB8F3D00880A54 /* NSString+UTF8.m in Sources */,
 				2CF0BC8018C8E6490035260B /* IFTask.m in Sources */,
 				2C9187D218C7A33F00D9CEF1 /* AFHTTPSessionManager.m in Sources */,
 				2C9187DC18C7A33F00D9CEF1 /* QiniuResumableUploader.m in Sources */,
@@ -1332,6 +1357,7 @@
 				2C866B8018C3A4BE0061BC6C /* IFMapCardView.m in Sources */,
 				2CDEB4B718C22A3000A2EFC0 /* UIStepper+FlatUI.m in Sources */,
 				2CDEB4BA18C22A3000A2EFC0 /* UIToolbar+FlatUI.m in Sources */,
+				2C8BCEB718CB707A00880A54 /* IFAudioUtil.m in Sources */,
 				2C9187E518C7A4FC00D9CEF1 /* IFUploadToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1478,13 +1504,15 @@
 					/Users/ifwang/Desktop/Code/Tietie/QXTietie,
 					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphoneos",
 					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphonesimulator",
+					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/Lame,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1511,13 +1539,14 @@
 					/Users/ifwang/Desktop/Code/Tietie/QXTietie,
 					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphoneos",
 					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphonesimulator",
+					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/Lame,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -18,4 +18,8 @@
 
 #define kCardIDValid @"http://112.124.101.16/check.php"
 
+#define kUploadInfo @"http://112.124.101.16/upload.php"
+
+#define kFileBaseUrl @"http://tietie-qrcode.qiniudn.com/"
+
 #endif

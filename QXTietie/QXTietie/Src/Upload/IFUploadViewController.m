@@ -58,7 +58,6 @@
 {
     [self initProgressView];
     [self initLabel];
-    
 }
 
 - (void)initProgressView
@@ -106,6 +105,12 @@
 - (void)onUploadAllSuccess
 {
     _resultLbl.text = @"上传任务全部完成~";
+    [self showTextHud:@"上传成功~"];
+    double delayInSeconds = 1.2;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    });
 }
 
 - (void)onUploadFailedAtIndex:(NSUInteger)currentIndex totalCount:(NSUInteger)totalCount
