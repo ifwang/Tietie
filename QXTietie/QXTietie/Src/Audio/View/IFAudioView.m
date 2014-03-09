@@ -25,6 +25,8 @@ static NSString *kEndText = @"结束";
 
 @property (nonatomic, strong) THProgressView *progressView;
 
+@property (nonatomic, strong) UILabel *recordView;
+
 @end
 
 @implementation IFAudioView
@@ -50,10 +52,25 @@ static NSString *kEndText = @"结束";
 - (void)initView
 {
     [self initPlot];
+    [self initRecordView];
     [self initProgress];
     [self initButton];
     
     [self changeToStatus:AudioViewStatusNew];
+    
+}
+
+- (void)initRecordView
+{
+    self.recordView = [[UILabel alloc] initWithFrame:CGRectMake(10, 180, 300, 40)];
+    _recordView.backgroundColor = [UIColor clearColor];
+    _recordView.font = [UIFont flatFontOfSize:40];
+    _recordView.numberOfLines =1;
+    _recordView.textColor = kViewTintColor;
+    _recordView.textAlignment = NSTextAlignmentCenter;
+    _recordView.alpha = 0;
+    
+    [self addSubview:_recordView];
     
 }
 
@@ -78,6 +95,7 @@ static NSString *kEndText = @"结束";
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     button.shadowHeight = 3.0f;
     button.cornerRadius = 6.0f;
+    button.shadowColor = HEXCOLOR(0x000079);
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(audioAction:) forControlEvents:UIControlEventTouchUpInside];
     self.audioBtn = button;
@@ -94,6 +112,7 @@ static NSString *kEndText = @"结束";
     [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     _submitBtn.shadowHeight = 3.0f;
     _submitBtn.cornerRadius = 6.0f;
+    _submitBtn.shadowColor = HEXCOLOR(0x003E3E);
     [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_submitBtn setTitle:@"录好啦~" forState:UIControlStateNormal];
     _submitBtn.alpha = 0;
@@ -125,6 +144,7 @@ static NSString *kEndText = @"结束";
         {
             [_audioBtn setTitle:@"开始录音" forState:UIControlStateNormal];
             [_audioBtn setButtonColor:kViewTintColor];
+            _audioBtn.shadowColor = HEXCOLOR(0x000079);
             [_progressView setProgress:0 animated:YES];
             
             [UIView animateWithDuration:1 animations:^{
@@ -136,7 +156,8 @@ static NSString *kEndText = @"结束";
         case AudioViewStatusRecording:
         {
             [_audioBtn setTitle:@"停止录音" forState:UIControlStateNormal];
-            [_audioBtn setButtonColor:kViewTintColor];
+            [_audioBtn setButtonColor:HEXCOLOR(0x008B8B)];
+            _audioBtn.shadowColor = HEXCOLOR(0x005757);
             [UIView animateWithDuration:1 animations:^{
                 _submitBtn.alpha = 0;
             }];
@@ -146,6 +167,7 @@ static NSString *kEndText = @"结束";
         {
             [_audioBtn setTitle:@"重新录音" forState:UIControlStateNormal];
             [_audioBtn setButtonColor:HEXCOLOR(0xCD5C5C)];
+            _audioBtn.shadowColor = HEXCOLOR(0x750000);
             [_progressView setProgress:1 animated:YES];
             [UIView animateWithDuration:1 animations:^{
                 _submitBtn.alpha = 1;
@@ -183,6 +205,19 @@ static NSString *kEndText = @"结束";
 {
     [_delegate onSubmitBtnClick];
 }
+
+- (void)setRecordViewHidden:(BOOL)isHidden
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _recordView.alpha = isHidden?0:1;
+        _audioPlot.alpha = isHidden?1:0;
+    }];
+}
+- (void)setRecordTimeText:(NSString*)text
+{
+    _recordView.text = text;
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

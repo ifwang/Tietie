@@ -58,4 +58,8 @@ typedef NS_ENUM(NSUInteger, AudioViewStatus)
 
 - (void)changeToStatus:(AudioViewStatus)status;
 
+- (void)setRecordViewHidden:(BOOL)isHidden;
+
+- (void)setRecordTimeText:(NSString*)text;
+
 @end

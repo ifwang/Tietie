@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C761A5818CCD7F20082FEA5 /* IFAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C761A5718CCD7F20082FEA5 /* IFAudioRecorder.m */; };
 		2C866B3E18C30B6F0061BC6C /* IFCardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */; };
 		2C866B3F18C30B6F0061BC6C /* IFCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */; };
 		2C866B4218C30B810061BC6C /* IFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4118C30B810061BC6C /* IFCardView.m */; };
@@ -173,6 +174,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C761A5618CCD7F20082FEA5 /* IFAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAudioRecorder.h; sourceTree = "<group>"; };
+		2C761A5718CCD7F20082FEA5 /* IFAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAudioRecorder.m; sourceTree = "<group>"; };
 		2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardViewController.h; sourceTree = "<group>"; };
 		2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IFCardViewController.mm; sourceTree = "<group>"; };
 		2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFCardViewController.xib; sourceTree = "<group>"; };
@@ -743,6 +746,8 @@
 				2C8BCEB618CB707A00880A54 /* IFAudioUtil.m */,
 				2C8BCEB818CB8F3D00880A54 /* NSString+UTF8.h */,
 				2C8BCEB918CB8F3D00880A54 /* NSString+UTF8.m */,
+				2C761A5618CCD7F20082FEA5 /* IFAudioRecorder.h */,
+				2C761A5718CCD7F20082FEA5 /* IFAudioRecorder.m */,
 			);
 			name = Common;
 			path = Src/Common;
@@ -1303,6 +1308,7 @@
 				2C91876218C7904300D9CEF1 /* IFGiftVO.m in Sources */,
 				2CB0CBAF18BFAAAE004EB3CE /* EZAudioFile.m in Sources */,
 				2CB0CB8E18BFA8F4004EB3CE /* UIDevice+Hardware.m in Sources */,
+				2C761A5818CCD7F20082FEA5 /* IFAudioRecorder.m in Sources */,
 				2C866B4D18C32BD30061BC6C /* IFTitleHeader.m in Sources */,
 				2CDEB4B318C22A3000A2EFC0 /* UINavigationBar+FlatUI.m in Sources */,
 				2C9187D318C7A33F00D9CEF1 /* AFNetworkReachabilityManager.m in Sources */,

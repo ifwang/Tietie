@@ -115,10 +115,12 @@
 - (void)onUploadInProgress:(CGFloat)percent
 {
     NSLog(@"model progress %f",percent);
-    
-    CGFloat allPercent = (1.0/_totalTaskCount) * (_currentTaskIndex + percent);
-    
-    [_delegate onUploadInProgress:allPercent];
+    if (percent < 1)
+    {
+        CGFloat allPercent = (1.0/_totalTaskCount) * (_currentTaskIndex + percent);
+        [_delegate onUploadInProgress:allPercent];
+    }
+
 }
 
 - (void)onUploadSuccess
@@ -191,9 +193,20 @@
     }
     [AFHTTPRequestOperationManager manager].requestSerializer = [AFJSONRequestSerializer serializer];
     [[AFHTTPRequestOperationManager manager] POST:kUploadInfo parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"response:%@",responseObject);
         
-        NSLog(@"上传成功:%@",responseObject);
-        [_delegate onUploadAllSuccess];
+        NSString *code = [responseObject objectForKey:@"code"];
+        if ([code integerValue] == 200)
+        {
+            NSLog(@"上传成功:%@",responseObject);
+            [_delegate onUploadAllSuccess];
+        }
+        else
+        {
+            NSLog(@"上传失败");
+            [_delegate onUploadFailedAtIndex:_totalTaskCount totalCount:_totalTaskCount];
+        }
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"上传失败:%@",error);

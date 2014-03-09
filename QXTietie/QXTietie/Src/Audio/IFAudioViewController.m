@@ -10,20 +10,16 @@
 #import "IFAudioView.h"
 #import "EZRecorder.h"
 #import "EZAudioPlayer.h"
-
+#import "IFAudioRecorder.h"
 static CGFloat const kMaxRecordTime = 150;
 
-@interface IFAudioViewController ()<EZMicrophoneDelegate,IFAudioViewDelegate,EZAudioPlayerDelegate>
+@interface IFAudioViewController ()<EZMicrophoneDelegate,IFAudioViewDelegate,EZAudioPlayerDelegate,IFAudioRecorderDelegate>
 
 @property (nonatomic, weak) IBOutlet IFAudioView *audioView;
 /**
  *  右上角播放按钮
  */
 @property (nonatomic, strong) UIBarButtonItem *playBtn;
-/**
- *  录音器
- */
-@property (nonatomic, strong) EZRecorder *recorder;
 
 /**
  *  播放器
@@ -39,10 +35,9 @@ static CGFloat const kMaxRecordTime = 150;
 @property (nonatomic, strong) NSTimer *recordTimer;
 
 @property (nonatomic, assign) NSUInteger recordTime;
-/**
- The microphone component
- */
-@property (nonatomic,strong) EZMicrophone *microphone;
+
+@property (nonatomic, strong) IFAudioRecorder *recorder;
+
 @end
 
 @implementation IFAudioViewController
@@ -80,14 +75,12 @@ static CGFloat const kMaxRecordTime = 150;
 
 - (void)dealloc
 {
+    if (_recorder.isRecording)
+    {
+        [_recorder stop];
+    }
     [_player stop];
     _player = nil;
-    
-    [_microphone stopFetchingAudio];
-    _microphone = nil;
-    
-    [_recorder closeAudioFile];
-    _recorder = nil;
     
 }
 
@@ -95,12 +88,8 @@ static CGFloat const kMaxRecordTime = 150;
 
 - (void)initController
 {
-
-    
-    
-//    self.microphone = [[EZMicrophone alloc] initWithMicrophoneDelegate:self withAudioStreamBasicDescription:format];
-    
-    self.microphone = [[EZMicrophone alloc] initWithMicrophoneDelegate:self];
+    self.recorder = [[IFAudioRecorder alloc] init];
+    _recorder.delegate = self;
     
     self.audioView = (IFAudioView*)self.view;
     [_audioView initView];
@@ -110,56 +99,49 @@ static CGFloat const kMaxRecordTime = 150;
     self.navigationItem.rightBarButtonItem = item;
     self.playBtn = item;
     _playBtn.enabled = NO;
+    
+    [_audioView setRecordViewHidden:NO];
+    [_audioView setRecordTimeText:[self timeText:0]];
 }
 
 #pragma mark - View Delegate
 
 - (void)onStartBtnClick
 {
-    [_microphone startFetchingAudio];
+    [_audioView setRecordViewHidden:NO];
     
     [self deleteAudio:_currentUrl];
     self.currentUrl = [self createAudioFile];
     
-    
-    
-    self.recorder = [EZRecorder recorderWithDestinationURL:_currentUrl andSourceFormat:_abDescription];
+    [_recorder recordWithFileUrl:_currentUrl];
     
     _playBtn.enabled = NO;
-    
     [self startRecordTimer];
-}
-
-- (AudioStreamBasicDescription)audioFormat
-{
-    AudioStreamBasicDescription format; // 声音格式设置，这些设置要和采集时的配置一致
-    memset(&format, 0, sizeof(format));
-    format.mSampleRate = 11025.0; // 采样率 (立体声 = 8000)
-    format.mFormatID = kAudioFormatLinearPCM; // PCM 格式
-    format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
-    format.mChannelsPerFrame = 2;  // 1:单声道；2:立体声
-    format.mBitsPerChannel = 16; // 语音每采样点占用位数
-    format.mBytesPerFrame = format.mBitsPerChannel / format.mChannelsPerFrame;
-    format.mFramesPerPacket = 1;
-    format.mBytesPerPacket = format.mBytesPerFrame * format.mFramesPerPacket;
-    
-    return format;
 }
 
 - (void)onStopBtnClick
 {
+    [_recorder stop];
+    
     if ([_recordTimer isValid])
     {
         [_recordTimer invalidate];
     }
     
-    [_microphone stopFetchingAudio];
-    [_recorder closeAudioFile];
     _playBtn.enabled = YES;
 }
 
 - (void)onReStartBtnClick
 {
+    
+    [_audioView setRecordViewHidden:NO];
+    [_audioView setRecordTimeText:[self timeText:0]];
+    
+    if(_recorder.isRecording)
+    {
+        [_recorder stop];
+    }
+    
     if (_player.isPlaying)
     {
         [_player stop];
@@ -170,27 +152,24 @@ static CGFloat const kMaxRecordTime = 150;
 
 - (void)onSubmitBtnClick
 {
-    if (_microphone.microphoneOn)
+    [_audioView setRecordViewHidden:YES];
+
+    if(_recorder.isRecording)
     {
-        [_microphone stopFetchingAudio];
-        [_recorder closeAudioFile];
-        
-        if (_player.isPlaying)
-        {
-            [_player stop];
-            _player = nil;
-        }
+        [_recorder stop];
     }
+    
     [_delegate onAudioControllerSubmitAudioWithURL:_currentUrl];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)play
 {
-    if (_microphone.microphoneOn)
+    [_audioView setRecordViewHidden:YES];
+
+    if(_recorder.isRecording)
     {
-        [_microphone stopFetchingAudio];
-        [_recorder closeAudioFile];
+        [_recorder stop];
     }
     
     if (_player.isPlaying)
@@ -204,41 +183,26 @@ static CGFloat const kMaxRecordTime = 150;
     
 }
 
+#pragma mark - Recorder Delegate Method
 
-
-#pragma mark - EZMicrophoneDelegate
-// Note that any callback that provides streamed audio data (like streaming microphone input) happens on a separate audio thread that should not be blocked. When we feed audio data into any of the UI components we need to explicity create a GCD block on the main thread to properly get the UI to work.
--(void)microphone:(EZMicrophone *)microphone
- hasAudioReceived:(float **)buffer
-   withBufferSize:(UInt32)bufferSize
-withNumberOfChannels:(UInt32)numberOfChannels {
-    // Getting audio data as an array of float buffer arrays. What does that mean? Because the audio is coming in as a stereo signal the data is split into a left and right channel. So buffer[0] corresponds to the float* data for the left channel while buffer[1] corresponds to the float* data for the right channel.
-    
-    // See the Thread Safety warning above, but in a nutshell these callbacks happen on a separate audio thread. We wrap any UI updating in a GCD block on the main thread to avoid blocking that audio flow.
-    dispatch_async(dispatch_get_main_queue(),^{
-        // All the audio plot needs is the buffer data (float*) and the size. Internally the audio plot will handle all the drawing related code, history management, and freeing its own resources. Hence, one badass line of code gets you a pretty plot :)
-        [self.audioView.audioPlot updateBuffer:buffer[0] withBufferSize:bufferSize];
-    });
+- (void)onRecordingAtCurrentTime:(NSTimeInterval)currentTime
+{
+    [_audioView setRecordTimeText:[self timeText:currentTime]];
 }
 
--(void)microphone:(EZMicrophone *)microphone hasAudioStreamBasicDescription:(AudioStreamBasicDescription)audioStreamBasicDescription {
-    // The AudioStreamBasicDescription of the microphone stream. This is useful when configuring the EZRecorder or telling another component what audio format type to expect.
-    // Here's a print function to allow you to inspect it a little easier
-    [EZAudio printASBD:audioStreamBasicDescription];
-    _abDescription = audioStreamBasicDescription;
-}
+- (NSString*)timeText:(NSTimeInterval)time
+{
+    int s = ((int)time) % 60;
+    int ss = (time - ((int)time)) * 100;
 
--(void)microphone:(EZMicrophone *)microphone
-    hasBufferList:(AudioBufferList *)bufferList
-   withBufferSize:(UInt32)bufferSize
-withNumberOfChannels:(UInt32)numberOfChannels {
-    // Getting audio data as a buffer list that can be directly fed into the EZRecorder or EZOutput. Say whattt...
-    
-    if (microphone.microphoneOn)
+    if (s == 15)
     {
-        [_recorder appendDataFromBufferList:bufferList withBufferSize:bufferSize];
+        ss = 0;
     }
     
+    NSString *text = [NSString stringWithFormat:@"%.2d:%.2d'' / 15:00''",s,ss];
+    
+    return text;
 }
 
 #pragma mark - Player Delegate Method

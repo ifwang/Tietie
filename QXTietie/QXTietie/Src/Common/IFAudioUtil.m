@@ -15,12 +15,14 @@
     
     NSString *mp3FilePath = [self getMp3FilePath];
     
+    NSString *cafFilePath = cafURL;
+    
     @try {
         int read, write;
         
-        FILE *pcm = fopen([cafURL cStringUsingEncoding:1], "rb");  //source 被转换的音频文件位置
+        FILE *pcm = fopen([cafFilePath cStringUsingEncoding:1], "rb");  //source
         fseek(pcm, 4*1024, SEEK_CUR);                                   //skip file header
-        FILE *mp3 = fopen([mp3FilePath cStringUsingEncoding:1], "wb");  //output 输出生成的Mp3文件位置
+        FILE *mp3 = fopen([mp3FilePath cStringUsingEncoding:1], "wb");  //output
         
         const int PCM_SIZE = 8192;
         const int MP3_SIZE = 8192;
@@ -28,7 +30,7 @@
         unsigned char mp3_buffer[MP3_SIZE];
         
         lame_t lame = lame_init();
-        lame_set_in_samplerate(lame, 11025.0);
+        lame_set_in_samplerate(lame, 44100);
         lame_set_VBR(lame, vbr_default);
         lame_init_params(lame);
         
@@ -51,10 +53,8 @@
         NSLog(@"%@",[exception description]);
     }
     @finally {
-        NSLog(@"MP3生成成功: %@",mp3FilePath);
+        return mp3FilePath;
     }
-    
-    return mp3FilePath;
 }
 
 + (NSString*)getMp3FilePath

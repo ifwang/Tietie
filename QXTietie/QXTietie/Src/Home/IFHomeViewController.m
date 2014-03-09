@@ -30,9 +30,12 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
     if (self) {
         // Custom initialization
+        self.title = @"二维码贴纸";
     }
+    
     return self;
 }
 
@@ -70,10 +73,35 @@
  */
 - (IBAction)onQRCodeScanBtnClicked:(id)sender
 {
-//    [self scanAction];
-    IFCardViewController *vc = [[IFCardViewController alloc] init];
-    vc.cardId = @"42WkE1JQihVut3BCKPyc";
-    [self.navigationController pushViewController:vc animated:YES];
+    [self scanAction];
+//    IFCardViewController *vc = [[IFCardViewController alloc] init];
+//    vc.cardId = @"YO53SUsZTVy78Rnup0QD";
+//    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)onClearMemoryBtnClick:(id)sender
+{
+    [self showActivator];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        
+        NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+        NSEnumerator *e = [contents objectEnumerator];
+        NSString *filename;
+        while ((filename = [e nextObject])) {
+            
+            [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:filename] error:NULL];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self dismisActivator];
+            [self showTextHud:@"清除成功！"];
+        });
+    });
+    
+
 }
 
 

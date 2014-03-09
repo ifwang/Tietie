@@ -46,7 +46,7 @@
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(40, 20, 240, 70)];
     label.text = @"将二维码至于下面的框内,即可自动扫描";
     label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentLeft;
+    label.textAlignment = NSTextAlignmentCenter;
     label.lineBreakMode = NSLineBreakByTruncatingTail;
     label.numberOfLines = 2;
     label.font = [UIFont flatFontOfSize:18];
@@ -61,7 +61,7 @@
     _line.frame = CGRectMake(20, 0, 200, 2);
     [image addSubview:_line];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(lineAnimation) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(lineAnimation) userInfo:nil repeats:YES];
 }
 
 - (void)lineAnimation
