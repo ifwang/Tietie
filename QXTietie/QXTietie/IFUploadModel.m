@@ -76,7 +76,14 @@
 {
     _totalTaskCount = [_taskQueue count];
     _currentTaskIndex = 0;
-    [self fetchTaskAtIndex:_currentTaskIndex];
+    if (_totalTaskCount > 0)
+    {
+        [self fetchTaskAtIndex:_currentTaskIndex];
+    }
+    else
+    {
+        [self uploadInfo];
+    }
 }
 
 - (void)fetchTaskAtIndex:(NSUInteger)index
