@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C761A5818CCD7F20082FEA5 /* IFAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C761A5718CCD7F20082FEA5 /* IFAudioRecorder.m */; };
+		2C7A980318CE304800C07876 /* locateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A980218CE304800C07876 /* locateIcon.png */; };
 		2C866B3E18C30B6F0061BC6C /* IFCardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */; };
 		2C866B3F18C30B6F0061BC6C /* IFCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */; };
 		2C866B4218C30B810061BC6C /* IFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C866B4118C30B810061BC6C /* IFCardView.m */; };
@@ -176,6 +177,7 @@
 /* Begin PBXFileReference section */
 		2C761A5618CCD7F20082FEA5 /* IFAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFAudioRecorder.h; sourceTree = "<group>"; };
 		2C761A5718CCD7F20082FEA5 /* IFAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFAudioRecorder.m; sourceTree = "<group>"; };
+		2C7A980218CE304800C07876 /* locateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateIcon.png; sourceTree = "<group>"; };
 		2C866B3B18C30B6F0061BC6C /* IFCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCardViewController.h; sourceTree = "<group>"; };
 		2C866B3C18C30B6F0061BC6C /* IFCardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IFCardViewController.mm; sourceTree = "<group>"; };
 		2C866B3D18C30B6F0061BC6C /* IFCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFCardViewController.xib; sourceTree = "<group>"; };
@@ -841,6 +843,7 @@
 		2CAADD1618B50283002AA74C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2C7A980218CE304800C07876 /* locateIcon.png */,
 				2C866B6418C37AA20061BC6C /* Plus.png */,
 				2C866B5818C33F830061BC6C /* mic.png */,
 				2C866B4918C314590061BC6C /* NavigationBackIcon.png */,
@@ -1228,6 +1231,7 @@
 				2C8BCEA518CB20C300880A54 /* zbar-helpicons.png in Resources */,
 				2CDEB4D518C2376700A2EFC0 /* Lato-HairlineItalic.ttf in Resources */,
 				2CEFE70C18B250B900FFAFA2 /* Images.xcassets in Resources */,
+				2C7A980318CE304800C07876 /* locateIcon.png in Resources */,
 				2C8BCEB018CB6CA500880A54 /* IFWebViewController.xib in Resources */,
 				2CB0CBBA18BFAAAE004EB3CE /* VERSION in Resources */,
 				2C91876718C795FD00D9CEF1 /* IFUploadViewController.xib in Resources */,

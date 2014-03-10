@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, kCardViewSection)
     kCardViewSectionText,
 };
 
-@interface IFCardView()<IFImageCardViewDelegate>
+@interface IFCardView()<IFImageCardViewDelegate,IFMapCardViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
@@ -133,6 +133,7 @@ typedef NS_ENUM(NSUInteger, kCardViewSection)
     _currentHeight += kTitleHeaderHeight;
     
     self.mapView = [[IFMapCardView alloc] initWithFrame:CGRectMake(0, _currentHeight + 5, 320, kMapCardViewHeight)];
+    _mapView.delegate = self;
     [_scrollView addSubview:_mapView];
     _currentHeight += kMapCardViewHeight + 10;
     
@@ -152,6 +153,27 @@ typedef NS_ENUM(NSUInteger, kCardViewSection)
 - (void)onImageBtnClicked:(NSUInteger)index
 {
     [_delegate onImageBtnClicked:index];
+}
+
+- (void)onMapingBtnClicked
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.animationType = MBProgressHUDAnimationZoom;
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"正在定位";
+}
+
+- (void)onMappingResult:(BOOL)success
+{
+    [MBProgressHUD hideAllHUDsForView:self animated:NO];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.animationType = MBProgressHUDAnimationZoom;
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = success?@"定位成功":@"定位失败";
+    
+    [hud hide:YES afterDelay:1];
+    
 }
 
 

@@ -48,8 +48,8 @@ CGFloat const kMapCardViewHeight = 150;
     button.backgroundColor = [UIColor clearColor];
     [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *addImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Plus"]];
-    addImg.frame = CGRectMake(125, 40, 40, 40);
+    UIImageView *addImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locateIcon"]];
+    addImg.frame = CGRectMake(135, 45, 20, 30);
     addImg.userInteractionEnabled = NO;
     [button addSubview:addImg];
     self.addBtn = button;
@@ -67,6 +67,8 @@ CGFloat const kMapCardViewHeight = 150;
 
 - (void)startMaping
 {
+    [_delegate onMapingBtnClicked];
+    
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(20, 20, 280, 110)];
     [self addSubview:_mapView];
     _mapView.delegate = self;
@@ -86,12 +88,15 @@ CGFloat const kMapCardViewHeight = 150;
     [_mapView addSubview:_locationLbl];
 
     [UIView animateWithDuration:1 animations:^{
+        _addBtn.alpha = 0;
         _mapView.alpha = 1;
     }];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    [_delegate onMappingResult:YES];
+    
     //CLLocationCoordinate2D coords = userLocation.location.coordinate;
     _isLocated = YES;
     
@@ -123,6 +128,20 @@ CGFloat const kMapCardViewHeight = 150;
     };
     [clGeoCoder reverseGeocodeLocation:newLocation completionHandler:handle];
 }
+
+- (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
+{
+    
+    [_delegate onMappingResult:NO];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _addBtn.alpha = 1;
+        _mapView.alpha = 0;
+    } completion:^(BOOL finished) {
+        _mapView = nil;
+    }];
+}
+
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {

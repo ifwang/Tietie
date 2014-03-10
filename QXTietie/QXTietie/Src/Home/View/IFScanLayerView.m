@@ -43,6 +43,9 @@
 //    coverView.alpha = 0.5;
 //    [self addSubview:coverView];
     
+
+    
+    
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(40, 20, 240, 70)];
     label.text = @"将二维码至于下面的框内,即可自动扫描";
     label.textColor = [UIColor whiteColor];
