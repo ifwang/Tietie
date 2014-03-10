@@ -36,6 +36,7 @@
     
     NSString *htmlString = @"<!DOCTYPE HTML><html><body></body></html>";
     [self.webView loadHTMLString:htmlString baseURL:nil];
+    self.webView.delegate = self;
     [self.webView performSelector:@selector(loadRequest:) withObject:request afterDelay:0.8];
 
 }

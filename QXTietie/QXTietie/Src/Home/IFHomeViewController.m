@@ -107,7 +107,7 @@
 
 - (void)scanAction
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showActivator];
     
     ZBarReaderViewController * reader = [ZBarReaderViewController new];
     //设置代理
@@ -128,7 +128,7 @@
     
     
     [self presentViewController:reader animated:YES completion:^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self dismisActivator];
     }];
     
 }
@@ -148,7 +148,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [_scanView stopAnimation];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showActivator];
 
     [picker dismissViewControllerAnimated:YES completion:^{
         [picker removeFromParentViewController];
@@ -197,7 +197,7 @@
     [manager GET:kCardIDValid parameters:@{@"qrcode":cardId}
          success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+         [self dismisActivator];
              NSDictionary *dict = responseObject;
              NSString *errCode = [dict objectForKey:@"code"];
              
@@ -205,20 +205,26 @@
          {
              [self showTextHud:@"读取卡片信息成功"];
              
-             double delayInSeconds = 1.2;
+             double delayInSeconds = 1;
              dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
              dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                  IFCardViewController *vc = [[IFCardViewController alloc] init];
                  vc.cardId = cardId;
                  [self.navigationController pushViewController:vc animated:YES];
              });
-
+             
          }
          else if([errCode integerValue] == 200)
          {
-             IFWebViewController *vc = [[IFWebViewController alloc] init];
-             vc.url = url;
-             [self.navigationController pushViewController:vc animated:YES];
+             [self showTextHud:@"读取卡片信息成功"];
+             double delayInSeconds = 1;
+             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                 IFWebViewController *vc = [[IFWebViewController alloc] init];
+                 vc.title = @"礼物卡片";
+                 vc.url = url;
+                 [self.navigationController pushViewController:vc animated:YES];
+             });
          }
          else
          {

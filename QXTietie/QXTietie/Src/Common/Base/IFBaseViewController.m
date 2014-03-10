@@ -73,7 +73,7 @@
 - (void)showActivator
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeDeterminate;
+    hud.mode = MBProgressHUDModeIndeterminate;
     hud.animationType = MBProgressHUDAnimationZoom;
 }
 

@@ -11,8 +11,9 @@
 #import "MDRadialProgressView.h"
 #import "MDRadialProgressTheme.h"
 #import "MDRadialProgressLabel.h"
+#import "IFWebViewController.h"
 
-@interface IFUploadViewController ()<IFUploadModelDelegate>
+@interface IFUploadViewController ()<IFUploadModelDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
@@ -21,6 +22,10 @@
 @property (nonatomic, strong) MDRadialProgressView *progressView;
 
 @property (nonatomic, strong) UILabel *resultLbl;
+
+@property (nonatomic, assign) BOOL isUploaded;
+
+@property (nonatomic, strong) FUIButton *resultBtn;
 
 @end
 
@@ -32,6 +37,7 @@
     if (self) {
         // Custom initialization
         self.title = @"上传";
+        _isUploaded = NO;
     }
     return self;
 }
@@ -58,6 +64,7 @@
 {
     [self initProgressView];
     [self initLabel];
+    [self initResultBtn];
 }
 
 - (void)initProgressView
@@ -89,6 +96,40 @@
     [self.view addSubview:_resultLbl];
 }
 
+- (void)initResultBtn
+{
+    CGSize screenSize = [IFCommon screenSize];
+    CGFloat height = screenSize.height - 44 - 60;
+    
+    self.resultBtn = [[FUIButton alloc] initWithFrame:CGRectMake(40, height, 240, 40)];
+    _resultBtn.buttonColor = HEXCOLOR(0x2894FF);
+    _resultBtn.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [_resultBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_resultBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    _resultBtn.shadowHeight = 3.0f;
+    _resultBtn.cornerRadius = 6.0f;
+    _resultBtn.shadowColor = HEXCOLOR(0x003E3E);
+    [_resultBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_resultBtn setTitle:@"查看卡片" forState:UIControlStateNormal];
+    _resultBtn.alpha = 0;
+    [_resultBtn addTarget:self action:@selector(resultAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_resultBtn];
+
+}
+
+- (void)resultAction:(id)sender
+{
+    NSString *url = [NSString stringWithFormat:@"http://112.124.101.16/?qrcode=%@",_gift.cardId];
+
+    IFWebViewController *vc = [[IFWebViewController alloc] init];
+    vc.title = @"礼物卡片";
+    vc.url = url;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
+
 #pragma mark - Model Delegate Method
 - (void)onUploadInProgress:(CGFloat)percent
 {
@@ -97,20 +138,20 @@
 
 - (void)onUploadSuccessAtIndex:(NSUInteger)currentIndex totalCount:(NSUInteger)totalCount
 {
-    _progressView.progressCounter = 100;
     
     _resultLbl.text = [NSString stringWithFormat:@"上传任务(%d/%d)已完成~",currentIndex+1,totalCount];
 }
 
 - (void)onUploadAllSuccess
 {
+    _progressView.progressCounter = 100;
+
     _resultLbl.text = @"上传任务全部完成~";
     [self showTextHud:@"上传成功~"];
-    double delayInSeconds = 1.2;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    });
+    _isUploaded = YES;
+    [UIView animateWithDuration:0.3 animations:^{
+        _resultBtn.alpha = 1;
+    }];
 }
 
 - (void)onUploadFailedAtIndex:(NSUInteger)currentIndex totalCount:(NSUInteger)totalCount
@@ -126,6 +167,28 @@
 	MDRadialProgressView *view = [[MDRadialProgressView alloc] initWithFrame:frame];
 
 	return view;
+}
+
+- (void)goBack
+{
+    if (_isUploaded)
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"停止上传" message:@"确定停止上传？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [_upModel stop];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

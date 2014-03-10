@@ -143,7 +143,7 @@
 
 - (void)keyboardHide:(NSNotification*)notification
 {
-    
+    [_cardView onKeyBoardComeDown];
 }
 
 #pragma mark - View Delegate Method

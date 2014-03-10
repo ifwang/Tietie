@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong) IFGiftVO *gift;
 
+@property (nonatomic, assign) BOOL isStoped;
+
 @end
 
 @implementation IFUploadModel
@@ -42,6 +44,8 @@
 
 - (void)uploadGift:(IFGiftVO *)gift
 {
+    _isStoped = NO;
+    
     if ([gift.imageList count] > 0)
     {
         [gift.imageList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -136,7 +140,7 @@
     [_delegate onUploadSuccessAtIndex:_currentTaskIndex totalCount:_totalTaskCount];
 
     _currentTaskIndex ++;
-    if (_currentTaskIndex < _totalTaskCount)
+    if (_currentTaskIndex < [_taskQueue count])
     {
         [self fetchTaskAtIndex:_currentTaskIndex];
     }
@@ -155,6 +159,11 @@
 
 - (void)uploadInfo
 {
+    if (_isStoped)
+    {
+        return;
+    }
+    
     NSMutableArray *imageArray = [NSMutableArray array];
     __block NSString *audioKey = nil;
     [_taskQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -198,6 +207,8 @@
         param[@"latitude"] = [@(_gift.location.coordinate.latitude) stringValue];
         param[@"longitude"] = [@(_gift.location.coordinate.longitude) stringValue];
     }
+    NSLog(@"upload param:%@",param);
+    
     [AFHTTPRequestOperationManager manager].requestSerializer = [AFJSONRequestSerializer serializer];
     [[AFHTTPRequestOperationManager manager] POST:kUploadInfo parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"response:%@",responseObject);
@@ -222,6 +233,15 @@
     }];
     
 }
+
+- (void)stop
+{
+    _delegate = nil;
+    [_taskQueue removeAllObjects];
+    _isStoped = YES;
+}
+
+
 
 @end
 

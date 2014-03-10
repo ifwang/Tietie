@@ -15,4 +15,6 @@
 - (void)showActivator;
 - (void)dismisActivator;
 
+- (void)goBack;
+
 @end

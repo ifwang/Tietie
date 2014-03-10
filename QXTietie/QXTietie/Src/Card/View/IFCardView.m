@@ -168,11 +168,17 @@ typedef NS_ENUM(NSUInteger, kCardViewSection)
     [self bringSubviewToFront:_coverView];
     _coverView.hidden = NO;
 }
-
-- (void)onCoverViewTap:(UIGestureRecognizer*)rec
+- (void)onKeyBoardComeDown
 {
     _coverView.hidden = YES;
     [self sendSubviewToBack:_coverView];
+}
+
+
+- (void)onCoverViewTap:(UIGestureRecognizer*)rec
+{
+//    _coverView.hidden = YES;
+//    [self sendSubviewToBack:_coverView];
     [_textView hideKeyBoard];
 }
 

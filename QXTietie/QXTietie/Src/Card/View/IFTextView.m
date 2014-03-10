@@ -27,6 +27,7 @@
         _textView.delegate = self;
         _textView.font = [UIFont flatFontOfSize:16];
         _textView.textColor = HEXCOLOR(0x272727);
+        _textView.returnKeyType = UIReturnKeyDone;
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         [self addSubview:_textView];
         
@@ -51,6 +52,16 @@
     {
         _placeHolder.hidden = YES;
     }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [_textView resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 - (void)hideKeyBoard

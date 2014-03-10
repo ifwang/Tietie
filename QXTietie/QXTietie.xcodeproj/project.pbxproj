@@ -1504,13 +1504,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/ZBarSDK,
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie,
+					"$(SRCROOT)/QXTietie/Src/ThirdParty/ZBarSDK",
+					"$(SRCROOT)/QXTietie",
 					"$(SRCROOT)/libs/Release$(EFFECTIVE_PLATFORM_NAME)",
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie,
-					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphoneos",
-					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphonesimulator",
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/Lame,
+					"$(SRCROOT)",
+					"$(SRCROOT)/libs/Release-iphoneos",
+					"$(SRCROOT)/libs/Release-iphonesimulator",
+					"$(SRCROOT)/QXTietie/Src/ThirdParty/Lame",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1539,13 +1539,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/ZBarSDK,
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie,
+					"$(SRCROOT)/QXTietie/Src/ThirdParty/ZBarSDK",
+					"$(SRCROOT)/QXTietie",
 					"$(SRCROOT)/libs/Release$(EFFECTIVE_PLATFORM_NAME)",
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie,
-					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphoneos",
-					"/Users/ifwang/Desktop/Code/Tietie/QXTietie/libs/Release-iphonesimulator",
-					/Users/ifwang/Desktop/Code/Tietie/QXTietie/QXTietie/Src/ThirdParty/Lame,
+					"$(SRCROOT)",
+					"$(SRCROOT)/libs/Release-iphoneos",
+					"$(SRCROOT)/libs/Release-iphonesimulator",
+					"$(SRCROOT)/QXTietie/Src/ThirdParty/Lame",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

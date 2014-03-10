@@ -29,6 +29,11 @@
 - (void)onKeyBoardComeUp;
 
 /**
+ *  告知视图键盘消失
+ */
+- (void)onKeyBoardComeDown;
+
+/**
  *  声音卡片是否为空
  *
  *  @param isEmpty 是否为空

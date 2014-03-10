@@ -16,13 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQX-fc-KcE">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQX-fc-KcE">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CQX-fc-KcE" secondAttribute="trailing" id="BRK-PP-dme"/>
+                <constraint firstAttribute="bottom" secondItem="CQX-fc-KcE" secondAttribute="bottom" id="ZK6-Jg-Lww"/>
+                <constraint firstItem="CQX-fc-KcE" firstAttribute="top" secondItem="1" secondAttribute="top" id="iPa-Gt-FQd"/>
+                <constraint firstItem="CQX-fc-KcE" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="qtf-BC-Wtf"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

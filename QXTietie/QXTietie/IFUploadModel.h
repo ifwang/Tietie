@@ -27,4 +27,6 @@
 
 - (void)uploadGift:(IFGiftVO*)gift;
 
+- (void)stop;
+
 @end
